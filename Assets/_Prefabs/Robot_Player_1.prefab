@@ -697,7 +697,7 @@ Rigidbody:
   m_GameObject: {fileID: 1485041585374558}
   serializedVersion: 2
   m_Mass: 3
-  m_Drag: 10
+  m_Drag: 0
   m_AngularDrag: 20
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 1
+  Force: 2
   TorqueMode: 1
   Torque: 1
   Grounded: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 1
+  Force: 2
   TorqueMode: 1
   Torque: 1
   Grounded: 0
@@ -791,7 +791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 1
+  Force: 2
   TorqueMode: 1
   Torque: 1
   Grounded: 0
@@ -808,8 +808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseButton: 0
   ForceMode: 1
-  Force: 10
-  Radius: 0
+  Force: 45
+  Radius: 1
   DrawActivationGizmos: 0
 --- !u!114 &114717210419176644
 MonoBehaviour:
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 1
+  Force: 2
   TorqueMode: 1
   Torque: 1
   Grounded: 0
@@ -838,8 +838,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93acc21bf59d41e2ab3478bc76090b37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 10
-  RotationSpeed: 10
   ParentTransform: {fileID: 4024613510284440}
   CenterOfMass: {fileID: 0}
   Body: {fileID: 54244305614639014}

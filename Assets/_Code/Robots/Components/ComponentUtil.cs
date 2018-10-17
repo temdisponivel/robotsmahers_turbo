@@ -32,7 +32,9 @@ namespace RobotSmashers {
                         Collider collider = colliders[j];
 
                         if (collider.attachedRigidbody != null && collider.attachedRigidbody != ownBody) {
-                            collider.attachedRigidbody.AddForceAtPosition(flipper.transform.forward * flipper.Force, flipper.transform.position, flipper.ForceMode);                            
+                            collider.attachedRigidbody.AddForceAtPosition(flipper.transform.forward * flipper.Force, flipper.transform.position, flipper.ForceMode);
+                            Robot enemy = collider.gameObject.GetComponentInParent<Robot>();
+                            enemy.CurrentHP -= flipper.Force / 10;
                         }
                     }
                 }

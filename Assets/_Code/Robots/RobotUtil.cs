@@ -26,7 +26,10 @@ namespace RobotSmashers.Robots {
         public static void FixedUpdateRobots(Robot[] robots) {
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
-                //robot.Chassi.Body.velocity = robot.Chassi.Body.velocity / (robot.Chassi.Body.mass * 3.33f);
+
+                Vector3 velocity = robot.Chassi.Body.velocity;
+                float drag = (robot.Chassi.Body.mass * 2f);
+                robot.Chassi.Body.velocity = new Vector3(robot.Chassi.Body.velocity.x / drag, velocity.y, robot.Chassi.Body.velocity.z / drag);
                 ComponentUtil.UpdateTracks(robot);
             }
         }
