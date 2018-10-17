@@ -20,6 +20,7 @@ namespace RobotSmashers.Robots {
             Body = GetComponent<Rigidbody>();
 
             Components.AllFlippers = GetComponentsInChildren<Flipper>();
+            Components.AllTracks = GetComponentsInChildren<Track>();
         }
     }
 }

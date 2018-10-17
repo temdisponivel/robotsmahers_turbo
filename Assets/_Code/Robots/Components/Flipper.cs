@@ -4,6 +4,8 @@ using UnityEngine;
 namespace RobotSmashers {
     public class Flipper : MonoBehaviour {
         public GamePad.Button UseButton;
+
+        public ForceMode ForceMode;
         public float Force;
         public float Radius;
 

@@ -17,6 +17,11 @@ namespace RobotSmashers {
 
         void Update() {
             RobotUtil.UpdateRobots(Robots);
+            RobotUtil.FixedUpdateRobots(Robots);
+        }
+
+        void FixedUpdate() {
+            //RobotUtil.FixedUpdateRobots(Robots);
         }
     }
 }
