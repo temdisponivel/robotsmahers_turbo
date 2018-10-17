@@ -9,6 +9,10 @@ namespace RobotSmashers {
     }
     
     public static class InputUtil {
+
+        public static GamepadState GetGamepadState(InputData data, GamePad.Index index) {
+            return data.Players[(int) index - 1];
+        }
         
         public static void UpdateInput(InputData inputData) {
             for (int i = 0; i < inputData.Players.Length; i++) {

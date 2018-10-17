@@ -1,60 +1,35 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using GamepadInput;
+using RobotSmashers.Robots;
 using UnityEditor;
 using UnityEngine;
 
 namespace RobotSmashers {
     public class LoopManager : MonoBehaviour {
 
+        public RobotReferences[] RobotReferences;
+        
         public InputData InputData;
-        public Transform[] PlayerObjects;
+        public Robot[] Robots;
+        
         
         void Start() {
-            InputData.Players = new GamepadState[2];
+            RobotReferences = FindObjectsOfType<RobotReferences>();
+            
+            InputData.Players = new GamepadState[RobotReferences.Length];
+            Robots = new Robot[RobotReferences.Length];
+
+            for (int i = 0; i < Robots.Length; i++) {
+                Robots[i] = new Robot();
+                Robots[i].ControllingPlayer = (GamePad.Index) i + 1;
+                Robots[i].References = RobotReferences[i];
+            }
         }
 
         void Update() {
             InputUtil.UpdateInput(InputData);
-
-            for (int i = 0; i < InputData.Players.Length; i++) {
-                GamepadState set = InputData.Players[i];
-
-                Transform playerTransform = PlayerObjects[i];
-
-                playerTransform.position += (Vector3) set.LeftStickAxis * 10 * Time.deltaTime;
-                playerTransform.localScale += (Vector3) set.RightStickAxis;
-                playerTransform.position += Vector3.right * set.RightTrigger;
-                playerTransform.position += Vector3.left * set.LeftTrigger;
-
-                if (set.LeftShoulder) {
-                    playerTransform.Rotate(Vector3.left * 30);
-                }
-
-                if (set.RightShoulder) {
-                    playerTransform.Rotate(Vector3.right * 30);
-                }
-
-                if (set.A) {
-                    playerTransform.transform.forward = Vector3.forward;
-                }
-
-                if (set.B) {
-                    playerTransform.transform.forward = Vector3.right;
-                }
-
-                if (set.X) {
-                    playerTransform.transform.forward = Vector3.left;
-                }
-
-                if (set.Y) {
-                    playerTransform.transform.forward = Vector3.back;
-                }
-
-                if (set.Start) {
-                    EditorApplication.isPlaying = false;
-                }
-            }
+            RobotUtil.UpdateRobots(InputData, Robots);
         }
     }
 }
