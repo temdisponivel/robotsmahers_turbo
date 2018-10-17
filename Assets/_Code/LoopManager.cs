@@ -4,26 +4,27 @@ using GamepadInput;
 using RobotSmashers.Robots;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace RobotSmashers {
     public class LoopManager : MonoBehaviour {
 
-        public RobotReferences[] RobotReferences;
+        [FormerlySerializedAs("RobotReferences")] public RobotChassi[] RobotChassi;
         
         public InputData InputData;
         public Robot[] Robots;
         
         
         void Start() {
-            RobotReferences = FindObjectsOfType<RobotReferences>();
+            RobotChassi = FindObjectsOfType<RobotChassi>();
             
-            InputData.Players = new GamepadState[RobotReferences.Length];
-            Robots = new Robot[RobotReferences.Length];
+            InputData.Players = new GamepadState[RobotChassi.Length];
+            Robots = new Robot[RobotChassi.Length];
 
             for (int i = 0; i < Robots.Length; i++) {
                 Robots[i] = new Robot();
                 Robots[i].ControllingPlayer = (GamePad.Index) i + 1;
-                Robots[i].References = RobotReferences[i];
+                Robots[i].Chassi = RobotChassi[i];
             }
         }
 
