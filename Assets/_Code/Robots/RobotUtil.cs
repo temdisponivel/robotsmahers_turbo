@@ -14,7 +14,7 @@ namespace RobotSmashers.Robots {
                 }
 
                 if (robot.LastCollision != null) {
-                    robot.CurrentHP -= robot.LastCollision.relativeVelocity.magnitude;
+                    robot.CurrentHP -= robot.LastCollision.relativeVelocity.magnitude / 10; // TODO: This will probably come from the shields of the robot
                     robot.LastCollision = null;
                 }
                 
@@ -26,6 +26,7 @@ namespace RobotSmashers.Robots {
         public static void FixedUpdateRobots(Robot[] robots) {
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
+                //robot.Chassi.Body.velocity = robot.Chassi.Body.velocity / (robot.Chassi.Body.mass * 3.33f);
                 ComponentUtil.UpdateTracks(robot);
             }
         }
