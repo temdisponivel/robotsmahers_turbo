@@ -2,12 +2,14 @@ using System;
 using GamepadInput;
 using RobotSmashers.Robots;
 using UnityEngine;
+using UnityEngine.Assertions.Must;
 
 namespace RobotSmashers {
     [Serializable]
     public class ComponentSet {
         public Flipper[] AllFlippers;
         public Track[] AllTracks;
+        public Blade[] AllBlades;
     }
 
     public static class ComponentUtil {
@@ -53,6 +55,23 @@ namespace RobotSmashers {
                     Vector3 force = chassi.ParentTransform.forward * track.Force * rightStick.y;
                     ownBody.AddRelativeTorque(torque, track.TorqueMode);
                     ownBody.AddForce(force, track.ForceMode);
+                }
+            }
+        }
+
+        public static void UpdateBlades(Robot robot) {
+            RobotChassi chassi = robot.Chassi;
+            
+            for (int i = 0; i < chassi.Components.AllBlades.Length; i++) {
+                Blade blade = chassi.Components.AllBlades[i];
+
+                for (int j = 0; j < blade.CurrentCollisions.Count; j++) {
+                    Collision collision = blade.CurrentCollisions[j];
+                    if ((1 << collision.collider.gameObject.layer & Constants.ROBOT_LAYER) != 0) {
+                        Robot enemy = collision.collider.gameObject.GetComponentInParent<Robot>();
+
+                        enemy.CurrentHP -= blade.DamagePerSecond * Time.deltaTime;
+                    }
                 }
             }
         }

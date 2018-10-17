@@ -16,7 +16,7 @@ namespace RobotSmashers {
         void Start() {
             Robots = FindObjectsOfType<Robot>();
             for (int i = 0; i < Robots.Length; i++) {
-                Robots[i].CurrentHP = Robots[i].HP;
+                Robots[i].CurrentHP = Robots[i].DefaultHP;
             }
         }
 

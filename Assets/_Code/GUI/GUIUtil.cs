@@ -8,7 +8,7 @@ namespace RobotSmashers.GUI {
             
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
-                float normalizedHp = robot.CurrentHP / robot.HP;
+                float normalizedHp = robot.CurrentHP / robot.DefaultHP;
 
                 Text robotNameText = healthBars.RobotNames[i];
                 robotNameText.text = robot.Name;

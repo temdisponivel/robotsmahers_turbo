@@ -12,19 +12,11 @@ namespace RobotSmashers {
         public bool Grounded;
 
         private void OnCollisionEnter(Collision other) {
-            Grounded = other.gameObject.CompareTag(Constants.GROUND_TAG);
+            Grounded = (1 << other.gameObject.layer & Constants.GROUND_LAYER) == Constants.GROUND_LAYER;
         }
-
-        /*private void OnTriggerEnter(Collider other) {
-            Grounded = other.gameObject.CompareTag(Constants.GROUND_TAG);
-        }*/
 
         private void OnCollisionExit(Collision other) {
-            Grounded = !other.gameObject.CompareTag(Constants.GROUND_TAG);
+            Grounded = (1 << other.gameObject.layer & Constants.GROUND_LAYER) != Constants.GROUND_LAYER;
         }
-
-        /*private void OnTriggerExit(Collider other) {
-            Grounded = !other.gameObject.CompareTag(Constants.GROUND_TAG);
-        }*/
     }
 }

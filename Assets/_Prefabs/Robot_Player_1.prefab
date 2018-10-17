@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4601696762559482}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slot_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 33829637502227774}
   - component: {fileID: 23439061266454898}
   - component: {fileID: 136260490239002130}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 114717210419176644}
   - component: {fileID: 54112617500433832}
   - component: {fileID: 138711023940361000}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 114546250786890896}
   - component: {fileID: 54342211200179190}
   - component: {fileID: 138715140183495504}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4696487260628682}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slot_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,7 @@ GameObject:
   - component: {fileID: 114415511815305440}
   - component: {fileID: 114801926210698820}
   - component: {fileID: 54244305614639014}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Robot_Player_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4046447540743640}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slot_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 114070406345043710}
   - component: {fileID: 54009825434147604}
   - component: {fileID: 138271778903341724}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,7 +163,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4096554371617904}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slot_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4657644316818632}
   - component: {fileID: 114648918646137946}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Slot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 33517218564001304}
   - component: {fileID: 23240615070303140}
   - component: {fileID: 65502076182014428}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 114175614141530224}
   - component: {fileID: 54033480339810956}
   - component: {fileID: 138156638924087988}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Track
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -774,9 +774,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92c2843db2274afe89800c4e822a3b15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HP: 0
+  DefaultHP: 100
   CurrentHP: 0
-  Name: 
+  Name: ROBOT_1
   ControllingPlayer: 2
   Chassi: {fileID: 114801926210698820}
 --- !u!114 &114546250786890896
@@ -851,6 +851,7 @@ MonoBehaviour:
     - {fileID: 114717210419176644}
     - {fileID: 114070406345043710}
     - {fileID: 114175614141530224}
+    AllBlades: []
 --- !u!135 &135654088334399828
 SphereCollider:
   m_ObjectHideFlags: 1

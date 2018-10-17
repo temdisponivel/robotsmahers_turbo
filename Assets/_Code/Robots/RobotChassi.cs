@@ -21,6 +21,7 @@ namespace RobotSmashers.Robots {
 
             Components.AllFlippers = GetComponentsInChildren<Flipper>();
             Components.AllTracks = GetComponentsInChildren<Track>();
+            Components.AllBlades = GetComponentsInChildren<Blade>();
         }
     }
 }
