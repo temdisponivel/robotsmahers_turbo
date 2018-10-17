@@ -19,7 +19,11 @@ namespace RobotSmashers.Robots {
 
                 Vector3 leftStickDir = new Vector3(inputState.LeftStickAxis.x, 0, inputState.LeftStickAxis.y);
                 robotTrans.forward = leftStickDir;
-                robotTrans.position += robotTrans.forward * ROBOT_SPEED * Time.deltaTime * leftStickDir.magnitude;
+
+                Vector3 force = robotTrans.forward * robot.References.ForceToApply * Time.deltaTime * leftStickDir.magnitude;
+                robot.References.Body.AddForce(force);
+                
+                // robotTrans.position += robotTrans.forward * ROBOT_SPEED * Time.deltaTime * leftStickDir.magnitude;
             }
         }
     }

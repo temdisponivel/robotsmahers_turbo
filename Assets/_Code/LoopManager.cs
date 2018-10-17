@@ -29,6 +29,9 @@ namespace RobotSmashers {
 
         void Update() {
             InputUtil.UpdateInput(InputData);
+        }
+
+        void FixedUpdate() {
             RobotUtil.UpdateRobots(InputData, Robots);
         }
     }
