@@ -22,6 +22,7 @@ namespace RobotSmashers.Robots {
             Components.AllBlades = GetComponentsInChildren<Blade>();
             Components.AllAxes = GetComponentsInChildren<Axe>();
             Components.AllShields = GetComponentsInChildren<Shield>();
+            Components.AllFlameThrowers = GetComponentsInChildren<FlameThrower>();
         }
     }
 }

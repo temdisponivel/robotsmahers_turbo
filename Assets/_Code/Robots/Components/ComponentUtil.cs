@@ -15,15 +15,38 @@ namespace RobotSmashers {
         public Blade[] AllBlades;
         public Axe[] AllAxes;
         public Shield[] AllShields;
+        public FlameThrower[] AllFlameThrowers; 
     }
 
     public static class ComponentUtil {
+        public static void ValidateCollisionEnter(Collider collider, List<Collider> colliderList) {
+            if ((1 << collider.gameObject.layer & Constants.ROBOT_LAYER) != Constants.ROBOT_LAYER) {
+                return;
+            }
+
+            for (int i = 0; i < colliderList.Count; i++) {
+                if (colliderList[i] == collider) {
+                    return;
+                }
+            }
+
+            colliderList.Add(collider);
+        }
+
+        public static void ValidateCollisionExit(Collider collider, List<Collider> colliderList) {
+            for (int i = 0; i < colliderList.Count; i++) {
+                if (colliderList[i] == collider) {
+                    colliderList.RemoveAt(i--);
+                }
+            }
+        }
+        
         public static Collider[] GetRobotCollidersInArea(Vector3 position, float radius) {
             Collider[] colliders = Physics.OverlapSphere(position, radius, Constants.ROBOT_LAYER);
             return colliders;
         }
         
-        public static List<Robot> ApplyDamage(Robot attacker, Collider[] robotColliders, float damageAmount) {
+        public static List<Robot> ApplyDamage(Robot attacker, Collider[] robotColliders, float damageAmount, bool canBeBlockedByShield = true) {
             List<Robot> processedRobots = new List<Robot>();
             
             for (int i = 0; i < robotColliders.Length; i++) {
@@ -40,19 +63,22 @@ namespace RobotSmashers {
                 processedRobots.Add(enemy);
 
                 float damageToApply = damageAmount;
-                if (collider.gameObject.CompareTag(Constants.SHIELD_TAG)) {
-                    Shield shield = collider.gameObject.GetComponent<Shield>();
 
-                    if (shield.CurrentShieldAmount > 0) {
-                        float remaining = shield.CurrentShieldAmount - damageToApply;
-                        if (remaining < 0) {
-                            shield.CurrentShieldAmount = 0;
-                            damageToApply = Mathf.Abs(remaining);
-                        } else {
-                            shield.CurrentShieldAmount -= damageToApply;
-                            damageToApply = 0;
+                if (canBeBlockedByShield) {
+                    if (collider.gameObject.CompareTag(Constants.SHIELD_TAG)) {
+                        Shield shield = collider.gameObject.GetComponent<Shield>();
+
+                        if (shield.CurrentShieldAmount > 0) {
+                            float remaining = shield.CurrentShieldAmount - damageToApply;
+                            if (remaining < 0) {
+                                shield.CurrentShieldAmount = 0;
+                                damageToApply = Mathf.Abs(remaining);
+                            } else {
+                                shield.CurrentShieldAmount -= damageToApply;
+                                damageToApply = 0;
+                            }
                         }
-                    }
+                    }                    
                 }
                 
                 enemy.CurrentHP -= damageToApply;
@@ -110,18 +136,21 @@ namespace RobotSmashers {
 
         public static void UpdateBlades(Robot robot) {
             RobotChassi chassi = robot.Chassi;
+            GamePad.Index playerIndex = robot.ControllingPlayer;
 
             for (int i = 0; i < chassi.Components.AllBlades.Length; i++) {
                 Blade blade = chassi.Components.AllBlades[i];
+
+                if (GamePad.GetButton(blade.UseButton, playerIndex)) {
+                    List<Robot> damagedEnemies = ApplyDamage(robot, blade.CurrentCollisions.ToArray(), blade.DamagePerSecond * Time.deltaTime);
                 
-                List<Robot> damagedEnemies = ApplyDamage(robot, blade.CurrentCollisions.ToArray(), blade.DamagePerSecond * Time.deltaTime);
-                
-                for (int j = 0; j < damagedEnemies.Count; j++) {
-                    Robot enemy = damagedEnemies[j];
+                    for (int j = 0; j < damagedEnemies.Count; j++) {
+                        Robot enemy = damagedEnemies[j];
                     
-                    Rigidbody enemyBody = enemy.Chassi.Body;
-                    Vector3 force = (enemy.Chassi.transform.position - chassi.transform.position) * blade.PhysicsForce;
-                    enemyBody.AddForceAtPosition(force, blade.transform.position, ForceMode.Impulse);
+                        Rigidbody enemyBody = enemy.Chassi.Body;
+                        Vector3 force = (enemy.Chassi.transform.position - chassi.transform.position) * blade.PhysicsForce;
+                        enemyBody.AddForceAtPosition(force, blade.transform.position, ForceMode.Impulse);
+                    }
                 }
             }
         }
@@ -171,6 +200,23 @@ namespace RobotSmashers {
                     UnityEngine.Object.Destroy(shield.Joint);
                     shield.transform.parent = null;
                     shield.gameObject.layer = LayerMask.NameToLayer(Constants.GROUND_LAYER_NAME);
+                }
+            }
+        }
+
+        public static void UpdateFlameThrower(Robot robot) {
+            RobotChassi chassi = robot.Chassi;
+            GamePad.Index index = robot.ControllingPlayer;
+            
+            for (int i = 0; i < chassi.Components.AllFlameThrowers.Length; i++) {
+                FlameThrower flameThrower = chassi.Components.AllFlameThrowers[i];
+                if (GamePad.GetButton(flameThrower.UseButton, index) && flameThrower.CurrentFuel > 0) {
+                    flameThrower.CurrentFuel -= flameThrower.FuelPerSecond * Time.deltaTime;
+                    flameThrower.FireRenderer.enabled = true;
+
+                    ApplyDamage(robot, flameThrower.CurrentColliders.ToArray(), flameThrower.DamagePerSecond * Time.deltaTime, false);
+                } else {
+                    flameThrower.FireRenderer.enabled = false;
                 }
             }
         }

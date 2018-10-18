@@ -8,9 +8,15 @@ namespace RobotSmashers.Robots {
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
                 robot.CurrentHP = robot.DefaultHP;
+                
                 for (int j = 0; j < robot.Chassi.Components.AllShields.Length; j++) {
                     Shield shield = robot.Chassi.Components.AllShields[j];
                     shield.CurrentShieldAmount = shield.DefaultShieldAmount;
+                }
+
+                for (int j = 0; j < robot.Chassi.Components.AllFlameThrowers.Length; j++) {
+                    FlameThrower flameThrower = robot.Chassi.Components.AllFlameThrowers[j];
+                    flameThrower.CurrentFuel = flameThrower.DefaultFuel;
                 }
             }
         }
@@ -33,6 +39,7 @@ namespace RobotSmashers.Robots {
                 ComponentUtil.UpdateBlades(robot);
                 ComponentUtil.UpdateAxes(robot);
                 ComponentUtil.UpdateShields(robot);
+                ComponentUtil.UpdateFlameThrower(robot);
             }
         }
 
