@@ -1,5 +1,8 @@
+using System;
 using GamepadInput;
 using RobotSmashers.Robots;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace RobotSmashers.GUI {
@@ -66,6 +69,110 @@ namespace RobotSmashers.GUI {
                     buttonGUI.ComponentImage.sprite = image.Image;
                     buttonGUI.ButtonImage.sprite = buttonImage.Image;
                 }
+            }
+        }
+
+        public static void SetupStartRoundGUI(StartRoundGUI gui) {
+            gui.CurrentStartMatchCooldown = gui.DefaultStartMatchCooldown;
+        }
+
+        public static void UpdateStartRoundGUI(GameplayGUIMaster master, Match match) {
+            master.StartRoundGUI.CurrentStartMatchCooldown -= Time.deltaTime;
+            if (master.StartRoundGUI.CurrentStartMatchCooldown <= 0) {
+                if (master.StartRoundGUI.CurrentStartMatchCooldown <= -.5f) {
+                    ChangeState(master, match, GameplayGUIState.PLAYING);
+                    master.StartRoundGUI.CountdownText.text = "GO";
+                } else {
+                    master.StartRoundGUI.CountdownText.text = Mathf.CeilToInt(master.StartRoundGUI.CurrentStartMatchCooldown).ToString();
+                }
+            } else {
+                master.StartRoundGUI.CountdownText.text = Mathf.CeilToInt(master.StartRoundGUI.CurrentStartMatchCooldown).ToString();
+            }
+        }
+
+        public static void SetupEndRoundGUI(EndRoundGUI gui) {
+            gui.CurrentReloadArenaCooldown = gui.DefaultReloadArenaCooldown;
+        }
+
+        public static void UpdateEndRoundGUI(GameplayGUIMaster master, Match match) {
+            master.EndRoundGUI.CurrentReloadArenaCooldown -= Time.deltaTime;
+            if (master.EndRoundGUI.CurrentReloadArenaCooldown <= 0) {
+                SceneManager.LoadScene("_Arena");
+                ChangeState(master, match, GameplayGUIState.ROUND_START);
+            }
+        }
+
+        public static void SetupEndMatchGUI(EndMatchGUI gui, Match match) {
+            gui.WinnerText.text = match.Winner.Name;
+        }
+
+        public static void UpdateEndMatchGUI(GameplayGUIMaster master, Match match) {
+            if (master.EndMatchGUI.RestartClicked) {
+                SceneManager.LoadScene("_Arena"); // TODO: Load title scene
+                
+                // TODO: This will be reset by the title screen
+                MatchUtil.ResetMatch(match.Robots, match);
+                ChangeState(master, match, GameplayGUIState.ROUND_START);
+            }
+        }
+        
+        public static void UpdateGUI(GameplayGUIMaster master, Match match) {
+            switch (master.CurrentState) {
+                case GameplayGUIState.PLAYING:
+                    UpdateHealthBar(match.Robots, master.HealthBar);
+                    break;
+                case GameplayGUIState.ROUND_START:
+                    UpdateStartRoundGUI(master, match);
+                    break;
+                case GameplayGUIState.ROUND_ENDED:
+                    UpdateEndRoundGUI(master, match);
+                    break;
+                case GameplayGUIState.MATCH_ENDED:
+                    UpdateEndMatchGUI(master, match);
+                    break;
+            }
+        }
+
+        public static void ChangeState(GameplayGUIMaster master, Match match, GameplayGUIState state) {
+            master.CurrentState = state;
+            
+            switch (master.CurrentState) {
+                case GameplayGUIState.PLAYING:
+                    master.HealthBar.gameObject.SetActive(true);
+                    master.ButtonBindings.gameObject.SetActive(true);
+                    master.EndMatchGUI.gameObject.SetActive(false);
+                    master.EndRoundGUI.gameObject.SetActive(false);
+                    master.StartRoundGUI.gameObject.SetActive(false);
+                    
+                    SetupButtonGUI(match.Robots, master);
+                    break;
+                case GameplayGUIState.ROUND_START:
+                    master.HealthBar.gameObject.SetActive(false);
+                    master.ButtonBindings.gameObject.SetActive(false);
+                    master.EndMatchGUI.gameObject.SetActive(false);
+                    master.EndRoundGUI.gameObject.SetActive(false);
+                    master.StartRoundGUI.gameObject.SetActive(true);
+                    
+                    SetupStartRoundGUI(master.StartRoundGUI);
+                    break;
+                case GameplayGUIState.ROUND_ENDED:
+                    master.HealthBar.gameObject.SetActive(false);
+                    master.ButtonBindings.gameObject.SetActive(false);
+                    master.EndMatchGUI.gameObject.SetActive(false);
+                    master.EndRoundGUI.gameObject.SetActive(true);
+                    master.StartRoundGUI.gameObject.SetActive(false);
+                    
+                    SetupEndRoundGUI(master.EndRoundGUI);
+                    break;
+                case GameplayGUIState.MATCH_ENDED:
+                    master.HealthBar.gameObject.SetActive(false);
+                    master.ButtonBindings.gameObject.SetActive(false);
+                    master.EndMatchGUI.gameObject.SetActive(true);
+                    master.EndRoundGUI.gameObject.SetActive(false);
+                    master.StartRoundGUI.gameObject.SetActive(false);
+                    
+                    SetupEndMatchGUI(master.EndMatchGUI, match);
+                    break;
             }
         }
     }

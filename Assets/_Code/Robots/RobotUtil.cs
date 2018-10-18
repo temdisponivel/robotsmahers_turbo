@@ -1,15 +1,15 @@
 using System;
 using GamepadInput;
+using RobotSmashers.GUI;
 using UnityEngine;
 
 namespace RobotSmashers.Robots {
     public static class RobotUtil {
-
         public static void SetupRobots(Robot[] robots) {
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
                 robot.CurrentHP = robot.DefaultHP;
-                
+
                 for (int j = 0; j < robot.Chassi.Components.AllShields.Length; j++) {
                     Shield shield = robot.Chassi.Components.AllShields[j];
                     shield.CurrentShieldAmount = shield.DefaultShieldAmount;
@@ -21,21 +21,29 @@ namespace RobotSmashers.Robots {
                 }
             }
         }
-        
-        public static void UpdateRobots(Robot[] robots) {
+
+        public static void UpdateRobots(Robot[] robots, GameplayGUIMaster gui) {
+            if (gui.CurrentState != GameplayGUIState.PLAYING) {
+                return;
+            }
+
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
 
+                if (robot.CurrentHP <= 0) {
+                    continue;
+                }
+
                 if (robot.Chassi.CenterOfMass != null) {
                     Vector3 localCenterOfMass = robot.Chassi.Body.transform.InverseTransformPoint(robot.Chassi.CenterOfMass.position);
-                    robot.Chassi.Body.centerOfMass = localCenterOfMass;                    
+                    robot.Chassi.Body.centerOfMass = localCenterOfMass;
                 }
 
                 if (robot.LastCollision != null) {
                     robot.CurrentHP -= robot.LastCollision.relativeVelocity.magnitude / 10; // TODO: This will probably come from the shields of the robot
                     robot.LastCollision = null;
                 }
-                
+
                 ComponentUtil.UpdateFlippers(robot);
                 ComponentUtil.UpdateBlades(robot);
                 ComponentUtil.UpdateAxes(robot);
@@ -44,9 +52,17 @@ namespace RobotSmashers.Robots {
             }
         }
 
-        public static void FixedUpdateRobots(Robot[] robots) {
+        public static void FixedUpdateRobots(Robot[] robots, GameplayGUIMaster gui) {
+            if (gui.CurrentState != GameplayGUIState.PLAYING) {
+                return;
+            }
+
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
+
+                if (robot.CurrentHP <= 0) {
+                    continue;
+                }
 
                 Vector3 velocity = robot.Chassi.Body.velocity;
                 float drag = (robot.Chassi.Body.mass * 2f);
