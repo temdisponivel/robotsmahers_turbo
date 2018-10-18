@@ -10,17 +10,18 @@ using UnityEngine.Serialization;
 namespace RobotSmashers {
     public class LoopManager : MonoBehaviour {
 
-        public HealthBar HealthBar;
+        public GameplayGUIMaster GUIMaster;
         public Robot[] Robots;
         
         void Start() {
             Robots = FindObjectsOfType<Robot>();
             RobotUtil.SetupRobots(Robots);
+            GUIUtil.SetupButtonGUI(Robots, GUIMaster);
         }
 
         void Update() {
             RobotUtil.UpdateRobots(Robots);
-            GUIUtil.UpdateHealthBar(Robots, HealthBar);
+            GUIUtil.UpdateHealthBar(Robots, GUIMaster.HealthBar);
         }
 
         void FixedUpdate() {
