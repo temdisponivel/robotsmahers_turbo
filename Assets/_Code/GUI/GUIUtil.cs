@@ -109,7 +109,7 @@ namespace RobotSmashers.GUI {
 
         public static void UpdateEndMatchGUI(GameplayGUIMaster master, Match match) {
             if (master.EndMatchGUI.RestartClicked) {
-                GameplayLoopManager.ReloadSceneAndChangeState(GameplayGUIState.ROUND_START, true); // TODO: Load title scene
+                SceneManager.LoadScene("_Title");
             }
         }
         

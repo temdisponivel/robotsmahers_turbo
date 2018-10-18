@@ -13,9 +13,8 @@ namespace RobotSmashers {
     }
 
     public static class MatchUtil {
-        public static void ResetMatch(Robot[] robots, Match match) {
-            match.Wins = new int[robots.Length];
-            match.Robots = robots;
+        public static void ResetMatch(Match match, int playerCount) {
+            match.Wins = new int[playerCount];
         }
 
         public static void UpdateMatch(
