@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using GamepadInput;
 using RobotSmashers.Robots;
 using UnityEngine;
@@ -13,9 +14,53 @@ namespace RobotSmashers {
         public Track[] AllTracks;
         public Blade[] AllBlades;
         public Axe[] AllAxes;
+        public Shield[] AllShields;
     }
 
     public static class ComponentUtil {
+        public static Collider[] GetRobotCollidersInArea(Vector3 position, float radius) {
+            Collider[] colliders = Physics.OverlapSphere(position, radius, Constants.ROBOT_LAYER);
+            return colliders;
+        }
+        
+        public static List<Robot> ApplyDamage(Robot attacker, Collider[] robotColliders, float damageAmount) {
+            List<Robot> processedRobots = new List<Robot>();
+            
+            for (int i = 0; i < robotColliders.Length; i++) {
+                Collider collider = robotColliders[i];
+                Robot enemy = collider.GetComponentInParent<Robot>();
+                if (enemy == attacker) {
+                    continue;
+                }
+
+                if (processedRobots.Contains(enemy)) {
+                    continue;
+                }
+
+                processedRobots.Add(enemy);
+
+                float damageToApply = damageAmount;
+                if (collider.gameObject.CompareTag(Constants.SHIELD_TAG)) {
+                    Shield shield = collider.gameObject.GetComponent<Shield>();
+
+                    if (shield.CurrentShieldAmount > 0) {
+                        float remaining = shield.CurrentShieldAmount - damageToApply;
+                        if (remaining < 0) {
+                            shield.CurrentShieldAmount = 0;
+                            damageToApply = Mathf.Abs(remaining);
+                        } else {
+                            shield.CurrentShieldAmount -= damageToApply;
+                            damageToApply = 0;
+                        }
+                    }
+                }
+                
+                enemy.CurrentHP -= damageToApply;
+            }
+
+            return processedRobots;
+        }
+        
         public static void UpdateFlippers(Robot robot) {
             RobotChassi chassi = robot.Chassi;
             GamePad.Index playerIndex = robot.ControllingPlayer;
@@ -26,18 +71,12 @@ namespace RobotSmashers {
                 if (GamePad.GetButtonDown(flipper.UseButton, playerIndex)) {
                     flipper.DrawActivationGizmos = true;
 
-                    Collider[] colliders = Physics.OverlapSphere(flipper.transform.position, .5f, Constants.ROBOT_LAYER);
+                    Collider[] colliders = GetRobotCollidersInArea(flipper.transform.position, flipper.Radius);
+                    List<Robot> damagedEnemies = ApplyDamage(robot, colliders, flipper.Force / 10);
 
-                    for (int j = 0; j < colliders.Length; j++) {
-                        Collider collider = colliders[j];
-                        Robot enemy = collider.gameObject.GetComponentInParent<Robot>();
-
-                        if (enemy == robot) {
-                            continue;
-                        }
-
+                    for (int j = 0; j < damagedEnemies.Count; j++) {
+                        Robot enemy = damagedEnemies[j];
                         enemy.Chassi.Body.AddForceAtPosition(flipper.transform.forward * flipper.Force, flipper.transform.position, flipper.ForceMode);
-                        enemy.CurrentHP -= flipper.Force / 10;
                     }
                 }
             }
@@ -62,7 +101,8 @@ namespace RobotSmashers {
                     ownBody.AddForce(force, track.ForceMode);
 #else
                     robot.Chassi.ParentTransform.forward = Vector3.Lerp(robot.Chassi.ParentTransform.forward, new Vector3(leftStick.x, 0, leftStick.y), track.Torque * Time.deltaTime);
-                    robot.Chassi.ParentTransform.position += robot.Chassi.ParentTransform.forward * track.Force * Time.deltaTime * rightStick.y;
+                    float multiplier = (track.Force * Time.deltaTime * rightStick.y) / ownBody.mass;
+                    robot.Chassi.ParentTransform.position += robot.Chassi.ParentTransform.forward * multiplier;
 #endif
                 }
             }
@@ -73,18 +113,13 @@ namespace RobotSmashers {
 
             for (int i = 0; i < chassi.Components.AllBlades.Length; i++) {
                 Blade blade = chassi.Components.AllBlades[i];
-
-                for (int j = 0; j < blade.CurrentCollisions.Count; j++) {
-                    Collision collision = blade.CurrentCollisions[j];
-                    Robot enemy = collision.collider.gameObject.GetComponentInParent<Robot>();
-
-                    if (enemy == robot) {
-                        continue;
-                    }
-
-                    enemy.CurrentHP -= blade.DamagePerSecond * Time.deltaTime;
+                
+                List<Robot> damagedEnemies = ApplyDamage(robot, blade.CurrentCollisions.ToArray(), blade.DamagePerSecond * Time.deltaTime);
+                
+                for (int j = 0; j < damagedEnemies.Count; j++) {
+                    Robot enemy = damagedEnemies[j];
+                    
                     Rigidbody enemyBody = enemy.Chassi.Body;
-
                     Vector3 force = (enemy.Chassi.transform.position - chassi.transform.position) * blade.PhysicsForce;
                     enemyBody.AddForceAtPosition(force, blade.transform.position, ForceMode.Impulse);
                 }
@@ -110,10 +145,12 @@ namespace RobotSmashers {
                 if (axe.AttackNow) {
                     axe.AttackNow = false;
 
-                    Collider[] colliders = Physics.OverlapSphere(axe.transform.position, axe.Radius, Constants.ROBOT_LAYER);
-                    for (int j = 0; j < colliders.Length; j++) {
-                        Collider collider = colliders[j];
-                        Robot enemy = collider.gameObject.GetComponentInParent<Robot>();
+                    Collider[] colliders = GetRobotCollidersInArea(axe.transform.position, axe.Radius);
+                    
+                    List<Robot> damagedEnemies = ApplyDamage(robot, colliders, axe.Damage);
+                    
+                    for (int j = 0; j < damagedEnemies.Count; j++) {
+                        Robot enemy = damagedEnemies[j];
 
                         if (enemy == robot) {
                             continue;
@@ -121,8 +158,18 @@ namespace RobotSmashers {
 
                         Rigidbody enemyBody = enemy.Chassi.Body;
                         enemyBody.AddForceAtPosition(-axe.transform.up * axe.PhysicsForce, axe.transform.position, ForceMode.Impulse);
-                        enemy.CurrentHP -= axe.Damage;
                     }
+                }
+            }
+        }
+
+        public static void UpdateShields(Robot robot) {
+            RobotChassi chassi = robot.Chassi;
+            for (int i = 0; i < chassi.Components.AllShields.Length; i++) {
+                Shield shield = chassi.Components.AllShields[i];
+                if (shield.CurrentShieldAmount <= 0 && shield.Joint) {
+                    UnityEngine.Object.Destroy(shield.Joint);
+                    shield.transform.parent = null;
                 }
             }
         }

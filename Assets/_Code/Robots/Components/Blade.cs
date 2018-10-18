@@ -5,11 +5,10 @@ namespace RobotSmashers {
     public class Blade : MonoBehaviour {
         public float PhysicsForce;
         public float DamagePerSecond;
-        public float Radius;
-        public List<Collision> CurrentCollisions;
+        public List<Collider> CurrentCollisions;
 
         void Awake() {
-            CurrentCollisions = new List<Collision>();
+            CurrentCollisions = new List<Collider>();
         }
 
         private void OnCollisionEnter(Collision other) {
@@ -18,24 +17,20 @@ namespace RobotSmashers {
             }
 
             for (int i = 0; i < CurrentCollisions.Count; i++) {
-                if (CurrentCollisions[i].collider == other.collider) {
+                if (CurrentCollisions[i] == other.collider) {
                     return;
                 }
             }
 
-            CurrentCollisions.Add(other);
+            CurrentCollisions.Add(other.collider);
         }
 
         private void OnCollisionExit(Collision other) {
             for (int i = 0; i < CurrentCollisions.Count; i++) {
-                if (CurrentCollisions[i].collider == other.collider) {
+                if (CurrentCollisions[i] == other.collider) {
                     CurrentCollisions.RemoveAt(i--);
                 }
             }
-        }
-
-        private void OnDrawGizmosSelected() {
-            Gizmos.DrawSphere(transform.position, Radius);
         }
     }
 }

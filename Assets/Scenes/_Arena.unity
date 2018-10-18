@@ -936,7 +936,7 @@ GameObject:
   - component: {fileID: 909426955}
   - component: {fileID: 909426954}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Loop_Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1658,7 +1658,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1388880485}
   m_Layer: 5
-  m_Name: Health_Bar_Player_One
+  m_Name: Health_Bar_Player_Two
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1677,7 +1677,7 @@ RectTransform:
   - {fileID: 1978893208}
   - {fileID: 2070765818}
   m_Father: {fileID: 1593818465}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.90500003}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1997,8 +1997,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 1388880485}
   - {fileID: 1770825444}
+  - {fileID: 1388880485}
   m_Father: {fileID: 1604977198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2108,11 +2108,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   HealthBarImages:
-  - {fileID: 2070765819}
   - {fileID: 850892017}
+  - {fileID: 2070765819}
   RobotNames:
-  - {fileID: 1978893209}
   - {fileID: 1032012800}
+  - {fileID: 1978893209}
 --- !u!1 &1770825443
 GameObject:
   m_ObjectHideFlags: 0
@@ -2122,7 +2122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1770825444}
   m_Layer: 5
-  m_Name: Health_Bar_Player_Two
+  m_Name: Health_Bar_Player_One
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2141,7 +2141,7 @@ RectTransform:
   - {fileID: 1032012799}
   - {fileID: 850892016}
   m_Father: {fileID: 1593818465}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.90500003}
   m_AnchorMax: {x: 1, y: 1}

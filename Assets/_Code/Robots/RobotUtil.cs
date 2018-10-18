@@ -3,6 +3,17 @@ using UnityEngine;
 
 namespace RobotSmashers.Robots {
     public static class RobotUtil {
+
+        public static void SetupRobots(Robot[] robots) {
+            for (int i = 0; i < robots.Length; i++) {
+                Robot robot = robots[i];
+                robot.CurrentHP = robot.DefaultHP;
+                for (int j = 0; j < robot.Chassi.Components.AllShields.Length; j++) {
+                    Shield shield = robot.Chassi.Components.AllShields[j];
+                    shield.CurrentShieldAmount = shield.DefaultShieldAmount;
+                }
+            }
+        }
         
         public static void UpdateRobots(Robot[] robots) {
             for (int i = 0; i < robots.Length; i++) {
@@ -21,6 +32,7 @@ namespace RobotSmashers.Robots {
                 ComponentUtil.UpdateFlippers(robot);
                 ComponentUtil.UpdateBlades(robot);
                 ComponentUtil.UpdateAxes(robot);
+                ComponentUtil.UpdateShields(robot);
             }
         }
 

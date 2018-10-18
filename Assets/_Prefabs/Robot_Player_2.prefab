@@ -868,6 +868,7 @@ MonoBehaviour:
   TorqueMode: 1
   Torque: 1
   Grounded: 0
+  CollisionCount: 0
 --- !u!114 &114278283287976106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -913,7 +914,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PhysicsForce: 5
   DamagePerSecond: 10
-  Radius: 0.5
+  CurrentCollisions: []
 --- !u!114 &114724303114901160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -930,6 +931,7 @@ MonoBehaviour:
   TorqueMode: 1
   Torque: 1
   Grounded: 0
+  CollisionCount: 0
 --- !u!114 &114807285890210418
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -955,6 +957,7 @@ MonoBehaviour:
     AllBlades:
     - {fileID: 114405600256924422}
     AllAxes: []
+    AllShields: []
 --- !u!114 &114826206077534874
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -971,6 +974,7 @@ MonoBehaviour:
   TorqueMode: 1
   Torque: 1
   Grounded: 0
+  CollisionCount: 0
 --- !u!114 &114829935125119168
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -987,6 +991,7 @@ MonoBehaviour:
   TorqueMode: 1
   Torque: 1
   Grounded: 0
+  CollisionCount: 0
 --- !u!135 &135175191110962316
 SphereCollider:
   m_ObjectHideFlags: 1

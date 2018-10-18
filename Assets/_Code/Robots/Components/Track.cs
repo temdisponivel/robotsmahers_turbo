@@ -11,12 +11,16 @@ namespace RobotSmashers {
         
         public bool Grounded;
 
+        public int CollisionCount;
+
         private void OnCollisionEnter(Collision other) {
-            Grounded = (1 << other.gameObject.layer & Constants.GROUND_LAYER) == Constants.GROUND_LAYER;
+            CollisionCount++;
+            Grounded = CollisionCount > 0; //(1 << other.gameObject.layer & Constants.GROUND_LAYER) == Constants.GROUND_LAYER;
         }
 
         private void OnCollisionExit(Collision other) {
-            Grounded = (1 << other.gameObject.layer & Constants.GROUND_LAYER) != Constants.GROUND_LAYER;
+            CollisionCount--;
+            Grounded = CollisionCount <= 0; //(1 << other.gameObject.layer & Constants.GROUND_LAYER) != Constants.GROUND_LAYER;
         }
     }
 }

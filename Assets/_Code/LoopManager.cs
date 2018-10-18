@@ -15,14 +15,11 @@ namespace RobotSmashers {
         
         void Start() {
             Robots = FindObjectsOfType<Robot>();
-            for (int i = 0; i < Robots.Length; i++) {
-                Robots[i].CurrentHP = Robots[i].DefaultHP;
-            }
+            RobotUtil.SetupRobots(Robots);
         }
 
         void Update() {
             RobotUtil.UpdateRobots(Robots);
-            
             GUIUtil.UpdateHealthBar(Robots, HealthBar);
         }
 
