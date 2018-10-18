@@ -126,8 +126,8 @@ namespace RobotSmashers {
                     ownBody.AddRelativeTorque(torque, track.TorqueMode);
                     ownBody.AddForce(force, track.ForceMode);
 #else
-                    robot.Chassi.ParentTransform.forward = Vector3.Lerp(robot.Chassi.ParentTransform.forward, new Vector3(leftStick.x, 0, leftStick.y), track.Torque * Time.deltaTime);
-                    float multiplier = (track.Force * Time.deltaTime * rightStick.y) / ownBody.mass;
+                    robot.Chassi.ParentTransform.forward = Vector3.Lerp(robot.Chassi.ParentTransform.forward, new Vector3(rightStick.x, 0, rightStick.y), track.Torque * Time.deltaTime);
+                    float multiplier = (track.Force * Time.deltaTime * leftStick.y) / ownBody.mass;
                     robot.Chassi.ParentTransform.position += robot.Chassi.ParentTransform.forward * multiplier;
 #endif
                 }

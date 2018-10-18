@@ -983,7 +983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928680ec8c36456089957226f3d8edf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseButton: 0
+  UseButton: 4
   ForceMode: 1
   Force: 45
   Radius: 1
@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5625b4fb95c4b00806987170dd8a716, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseButton: 3
+  UseButton: 5
   DefaultFuel: 100
   CurrentFuel: 0
   FuelPerSecond: 50
