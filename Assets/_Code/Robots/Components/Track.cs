@@ -9,18 +9,18 @@ namespace RobotSmashers {
         public ForceMode TorqueMode;
         public float Torque;
         
-        public bool Grounded;
-
-        public int CollisionCount;
+        public int GroundCollisions;
 
         private void OnCollisionEnter(Collision other) {
-            CollisionCount++;
-            Grounded = CollisionCount > 0; //(1 << other.gameObject.layer & Constants.GROUND_LAYER) == Constants.GROUND_LAYER;
+            if ((1 << other.gameObject.layer & Constants.GROUND_LAYER) == Constants.GROUND_LAYER) {
+                GroundCollisions++;
+            }
         }
 
         private void OnCollisionExit(Collision other) {
-            CollisionCount--;
-            Grounded = CollisionCount <= 0; //(1 << other.gameObject.layer & Constants.GROUND_LAYER) != Constants.GROUND_LAYER;
+            if ((1 << other.gameObject.layer & Constants.GROUND_LAYER) == Constants.GROUND_LAYER) {
+                GroundCollisions--;
+            }
         }
     }
 }

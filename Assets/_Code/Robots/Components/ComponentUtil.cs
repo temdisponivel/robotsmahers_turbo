@@ -93,7 +93,7 @@ namespace RobotSmashers {
             for (int i = 0; i < chassi.Components.AllTracks.Length; i++) {
                 Track track = chassi.Components.AllTracks[i];
 
-                if (track.Grounded) {
+                if (track.GroundCollisions > 0) {
 #if PHYSICS_MOVEMENT
                     Vector3 torque = chassi.ParentTransform.up * track.Torque * leftStick.x;
                     Vector3 force = chassi.ParentTransform.forward * track.Force * rightStick.y;
@@ -170,6 +170,7 @@ namespace RobotSmashers {
                 if (shield.CurrentShieldAmount <= 0 && shield.Joint) {
                     UnityEngine.Object.Destroy(shield.Joint);
                     shield.transform.parent = null;
+                    shield.gameObject.layer = LayerMask.NameToLayer(Constants.GROUND_LAYER_NAME);
                 }
             }
         }
