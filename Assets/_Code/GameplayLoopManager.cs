@@ -20,6 +20,7 @@ namespace RobotSmashers {
             // This can happen when the game is loaded from the arena scene instead of the title scene
             if (GameData.Match == null) {
                 GameData.Match = new Match();
+                GameData.NextState = GameplayGUIState.ROUND_START;
                 MatchUtil.ResetMatch(GameData.Match, 2);
             }
             
