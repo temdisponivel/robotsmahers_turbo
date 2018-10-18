@@ -41,6 +41,8 @@ namespace RobotSmashers.GUI {
 
                 Image image = healthBars.HealthBarImages[i];
                 image.fillAmount = normalizedHp;
+
+                image.color = robot.Color;
             }
         }
         
@@ -79,11 +81,11 @@ namespace RobotSmashers.GUI {
         public static void UpdateStartRoundGUI(GameplayGUIMaster master, Match match) {
             master.StartRoundGUI.CurrentStartMatchCooldown -= Time.deltaTime;
             if (master.StartRoundGUI.CurrentStartMatchCooldown <= 0) {
-                if (master.StartRoundGUI.CurrentStartMatchCooldown <= -.5f) {
-                    ChangeState(master, match, GameplayGUIState.PLAYING);
+                if (master.StartRoundGUI.CurrentStartMatchCooldown > -.5f) {
                     master.StartRoundGUI.CountdownText.text = "GO";
                 } else {
                     master.StartRoundGUI.CountdownText.text = Mathf.CeilToInt(master.StartRoundGUI.CurrentStartMatchCooldown).ToString();
+                    ChangeState(master, match, GameplayGUIState.PLAYING);
                 }
             } else {
                 master.StartRoundGUI.CountdownText.text = Mathf.CeilToInt(master.StartRoundGUI.CurrentStartMatchCooldown).ToString();
@@ -97,8 +99,7 @@ namespace RobotSmashers.GUI {
         public static void UpdateEndRoundGUI(GameplayGUIMaster master, Match match) {
             master.EndRoundGUI.CurrentReloadArenaCooldown -= Time.deltaTime;
             if (master.EndRoundGUI.CurrentReloadArenaCooldown <= 0) {
-                SceneManager.LoadScene("_Arena");
-                ChangeState(master, match, GameplayGUIState.ROUND_START);
+                GameplayLoopManager.ReloadSceneAndChangeState(GameplayGUIState.ROUND_START, false);
             }
         }
 
@@ -108,11 +109,7 @@ namespace RobotSmashers.GUI {
 
         public static void UpdateEndMatchGUI(GameplayGUIMaster master, Match match) {
             if (master.EndMatchGUI.RestartClicked) {
-                SceneManager.LoadScene("_Arena"); // TODO: Load title scene
-                
-                // TODO: This will be reset by the title screen
-                MatchUtil.ResetMatch(match.Robots, match);
-                ChangeState(master, match, GameplayGUIState.ROUND_START);
+                GameplayLoopManager.ReloadSceneAndChangeState(GameplayGUIState.ROUND_START, true); // TODO: Load title scene
             }
         }
         
@@ -135,6 +132,7 @@ namespace RobotSmashers.GUI {
 
         public static void ChangeState(GameplayGUIMaster master, Match match, GameplayGUIState state) {
             master.CurrentState = state;
+            Debug.Log("Changing state to: " + state);
             
             switch (master.CurrentState) {
                 case GameplayGUIState.PLAYING:

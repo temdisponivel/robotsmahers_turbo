@@ -22,32 +22,34 @@ namespace RobotSmashers {
             Match match,
             GameplayGUIMaster gui
         ) {
-            int deadRobots = 0;
-            for (int i = 0; i < match.Robots.Length; i++) {
-                Robot robot = match.Robots[i];
-                if (robot.CurrentHP <= 0) {
-                    deadRobots++;
-                }
-            }
-
-            // If there's only one left
-            if (deadRobots == match.Robots.Length - 1) {
-                int aliveRobotIndex = 0;
+            if (gui.CurrentState == GameplayGUIState.PLAYING) {
+                int deadRobots = 0;
                 for (int i = 0; i < match.Robots.Length; i++) {
                     Robot robot = match.Robots[i];
-                    if (robot.CurrentHP > 0) {
-                        aliveRobotIndex = i;
+                    if (robot.CurrentHP <= 0) {
+                        deadRobots++;
                     }
                 }
 
-                match.Wins[aliveRobotIndex]++;
+                // If there's only one left
+                if (deadRobots == match.Robots.Length - 1) {
+                    int aliveRobotIndex = 0;
+                    for (int i = 0; i < match.Robots.Length; i++) {
+                        Robot robot = match.Robots[i];
+                        if (robot.CurrentHP > 0) {
+                            aliveRobotIndex = i;
+                        }
+                    }
 
-                match.Winner = match.Robots[aliveRobotIndex];
+                    match.Wins[aliveRobotIndex]++;
 
-                if (match.Wins[aliveRobotIndex] >= 2) {
-                    GUIUtil.ChangeState(gui, match, GameplayGUIState.MATCH_ENDED);
-                } else {
-                    GUIUtil.ChangeState(gui, match, GameplayGUIState.ROUND_ENDED);
+                    match.Winner = match.Robots[aliveRobotIndex];
+
+                    if (match.Wins[aliveRobotIndex] >= 2) {
+                        GUIUtil.ChangeState(gui, match, GameplayGUIState.MATCH_ENDED);
+                    } else {
+                        GUIUtil.ChangeState(gui, match, GameplayGUIState.ROUND_ENDED);
+                    }
                 }
             }
         }

@@ -629,10 +629,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HealthBarImages:
   - {fileID: 114997743339395050}
-  - {fileID: 114997743339395050}
+  - {fileID: 114715325591645090}
   RobotNames:
   - {fileID: 114880140954480240}
-  - {fileID: 114880140954480240}
+  - {fileID: 114188286424382952}
 --- !u!114 &114378309505522850
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -856,7 +856,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 2
   m_Spacing: 5
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 1

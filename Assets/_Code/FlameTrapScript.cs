@@ -15,19 +15,14 @@ public class FlameTrapScript : MonoBehaviour
     public float waitSeconds;
     public float damagePerSecond;
 
-    private void OnTriggerEnter(Collider collider)
-    {
-        if (waiting == false)
-        {
-            StartCoroutine(Wait(waitSeconds));
-        }
-
-    }
-
     private void OnTriggerStay(Collider collider)
     {
-        Collider[] colliders = new Collider[] { collider };
-        ComponentUtil.ApplyDamage(null, colliders, damagePerSecond * Time.deltaTime, false);
+        if (waiting) {
+            Collider[] colliders = new Collider[] { collider };
+            ComponentUtil.ApplyDamage(null, colliders, damagePerSecond * Time.deltaTime, false);            
+        } else {
+            StartCoroutine(Wait(waitSeconds));
+        }
     }
 
     private IEnumerator Wait(float seconds)

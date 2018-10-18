@@ -5,6 +5,7 @@ using RobotSmashers.GUI;
 using RobotSmashers.Robots;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Serialization;
 
 namespace RobotSmashers {
@@ -12,6 +13,8 @@ namespace RobotSmashers {
         public GameplayGUIMaster GUIMaster;
         public Robot[] Robots;
         public static Match Match; // Static so that it persists between scene loads
+        public static GameplayGUIState NextState;
+        public static bool ResetMatch;
 
         void Start() {
             Robots = FindObjectsOfType<Robot>();
@@ -19,8 +22,18 @@ namespace RobotSmashers {
             
             if (Match == null) {
                 Match = new Match();
+                NextState = GameplayGUIState.ROUND_START;
+                ResetMatch = true;
+            }
+            
+            Match.Robots = Robots;
+            
+            GUIUtil.ChangeState(GUIMaster, Match, NextState);
+
+
+            if (ResetMatch) {
+                ResetMatch = false;
                 MatchUtil.ResetMatch(Robots, Match);
-                GUIUtil.ChangeState(GUIMaster, Match, GameplayGUIState.ROUND_START);
             }
         }
 
@@ -32,6 +45,12 @@ namespace RobotSmashers {
 
         void FixedUpdate() {
             RobotUtil.FixedUpdateRobots(Robots, GUIMaster);
+        }
+
+        public static void ReloadSceneAndChangeState(GameplayGUIState state, bool resetMatch) {
+            NextState = state;
+            ResetMatch = resetMatch;
+            SceneManager.LoadScene("_Arena");
         }
     }
 }

@@ -2762,6 +2762,26 @@ Prefab:
       propertyPath: m_Mass
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114415511815305440, guid: 3ed3394c29ea6d54394e8c4e8ff8db6b,
+        type: 2}
+      propertyPath: Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415511815305440, guid: 3ed3394c29ea6d54394e8c4e8ff8db6b,
+        type: 2}
+      propertyPath: Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415511815305440, guid: 3ed3394c29ea6d54394e8c4e8ff8db6b,
+        type: 2}
+      propertyPath: Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114415511815305440, guid: 3ed3394c29ea6d54394e8c4e8ff8db6b,
+        type: 2}
+      propertyPath: Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ed3394c29ea6d54394e8c4e8ff8db6b, type: 2}
   m_IsPrefabAsset: 0
@@ -3779,6 +3799,26 @@ Prefab:
     - target: {fileID: 1991052757374504, guid: bc52d9d9a5395ef4a91c903355e2010c, type: 2}
       propertyPath: m_Name
       value: Robot_Player_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 114312760719731700, guid: bc52d9d9a5395ef4a91c903355e2010c,
+        type: 2}
+      propertyPath: Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114312760719731700, guid: bc52d9d9a5395ef4a91c903355e2010c,
+        type: 2}
+      propertyPath: Color.g
+      value: 0.04313898
+      objectReference: {fileID: 0}
+    - target: {fileID: 114312760719731700, guid: bc52d9d9a5395ef4a91c903355e2010c,
+        type: 2}
+      propertyPath: Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114312760719731700, guid: bc52d9d9a5395ef4a91c903355e2010c,
+        type: 2}
+      propertyPath: Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc52d9d9a5395ef4a91c903355e2010c, type: 2}

@@ -31,6 +31,10 @@ namespace RobotSmashers.Robots {
                 Robot robot = robots[i];
 
                 if (robot.CurrentHP <= 0) {
+                    Joint[] joint = robot.GetComponentsInChildren<Joint>();
+                    for (int j = 0; j < joint.Length; j++) {
+                        UnityEngine.Object.Destroy(joint[j]);                        
+                    }
                     continue;
                 }
 
