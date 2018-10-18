@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4601696762559482}
+  - component: {fileID: 114151020262720382}
   m_Layer: 10
   m_Name: Slot_3
   m_TagString: Untagged
@@ -68,6 +69,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4175690274685870}
+  - component: {fileID: 114497197880051548}
   m_Layer: 10
   m_Name: Slot_1
   m_TagString: Untagged
@@ -83,6 +85,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4922759401972480}
+  - component: {fileID: 114125509946475656}
   m_Layer: 10
   m_Name: Slot_6
   m_TagString: Untagged
@@ -195,6 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4657644316818632}
+  - component: {fileID: 114603672016696726}
   m_Layer: 10
   m_Name: Slot_7
   m_TagString: Untagged
@@ -228,6 +232,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4631560731034316}
+  - component: {fileID: 114320546094289904}
   m_Layer: 10
   m_Name: Slot_2
   m_TagString: Untagged
@@ -242,7 +247,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1485041585374558}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.375, y: -1.442, z: -14.24}
+  m_LocalPosition: {x: 4.45, y: -1.442, z: -14.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4481043569477110}
@@ -740,6 +745,45 @@ MonoBehaviour:
   DefaultShieldAmount: 10
   CurrentShieldAmount: 0
   Joint: {fileID: 138025759126935916}
+--- !u!114 &114125509946475656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1328742848530320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 3
+  UseButton: 4
+--- !u!114 &114151020262720382
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1140149750032572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 1
+  UseButton: 0
+--- !u!114 &114320546094289904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1956697601691608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 1
+  UseButton: 0
 --- !u!114 &114415511815305440
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -767,11 +811,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 928680ec8c36456089957226f3d8edf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseButton: 0
+  UseButton: 5
   ForceMode: 1
   Force: 45
   Radius: 1
   DrawActivationGizmos: 0
+--- !u!114 &114497197880051548
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1302046212135374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 0
+  UseButton: 5
+--- !u!114 &114603672016696726
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719718139207158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 4
+  UseButton: 0
 --- !u!114 &114801926210698820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -786,13 +856,23 @@ MonoBehaviour:
   ParentTransform: {fileID: 4024613510284440}
   CenterOfMass: {fileID: 0}
   Body: {fileID: 54244305614639014}
-  AllSlots: []
+  AllSlots:
+  - {fileID: 114497197880051548}
+  - {fileID: 114320546094289904}
+  - {fileID: 114151020262720382}
+  - {fileID: 114125509946475656}
+  - {fileID: 114603672016696726}
   Components:
-    AllFlippers: []
-    AllTracks: []
+    AllFlippers:
+    - {fileID: 114429078696306710}
+    AllTracks:
+    - {fileID: 114954924401390268}
+    - {fileID: 114070406345043710}
     AllBlades: []
-    AllAxes: []
-    AllShields: []
+    AllAxes:
+    - {fileID: 114958987002576018}
+    AllShields:
+    - {fileID: 114108629936241056}
     AllFlameThrowers: []
 --- !u!114 &114954924401390268
 MonoBehaviour:
@@ -821,7 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 974c1b34c2dd4fbf91a1bfabe80864ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UseButton: 1
+  UseButton: 4
   Damage: 10
   PhysicsForce: 10
   Radius: 2

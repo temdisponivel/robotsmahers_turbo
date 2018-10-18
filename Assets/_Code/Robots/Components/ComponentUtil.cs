@@ -215,7 +215,8 @@ namespace RobotSmashers {
                         }
 
                         Rigidbody enemyBody = enemy.Chassi.Body;
-                        enemyBody.AddForceAtPosition(-axe.transform.up * axe.PhysicsForce, axe.transform.position, ForceMode.Impulse);
+                        Vector3 dir = Vector3.Lerp(-axe.transform.up, axe.transform.forward, .5f);
+                        enemyBody.AddForceAtPosition(dir * axe.PhysicsForce, axe.transform.position, ForceMode.Impulse);
                     }
                 }
             }
