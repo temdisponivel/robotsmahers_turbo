@@ -20,6 +20,7 @@ namespace RobotSmashers.Robots {
                 
                 ComponentUtil.UpdateFlippers(robot);
                 ComponentUtil.UpdateBlades(robot);
+                ComponentUtil.UpdateAxes(robot);
             }
         }
 

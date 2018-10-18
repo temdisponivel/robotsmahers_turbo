@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace RobotSmashers {
     public class Blade : MonoBehaviour {
+        public float PhysicsForce;
         public float DamagePerSecond;
         public float Radius;
         public List<Collision> CurrentCollisions;
@@ -12,12 +13,16 @@ namespace RobotSmashers {
         }
 
         private void OnCollisionEnter(Collision other) {
+            if ((1 << other.gameObject.layer & Constants.ROBOT_LAYER) != Constants.ROBOT_LAYER) {
+                return;
+            }
+
             for (int i = 0; i < CurrentCollisions.Count; i++) {
                 if (CurrentCollisions[i].collider == other.collider) {
                     return;
                 }
             }
-            
+
             CurrentCollisions.Add(other);
         }
 
@@ -29,7 +34,7 @@ namespace RobotSmashers {
             }
         }
 
-        private void OnDrawGizmos() {
+        private void OnDrawGizmosSelected() {
             Gizmos.DrawSphere(transform.position, Radius);
         }
     }

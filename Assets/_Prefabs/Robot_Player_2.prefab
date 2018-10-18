@@ -911,6 +911,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0411fae6454d4a8d8c31808c4bfb90d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PhysicsForce: 5
   DamagePerSecond: 10
   Radius: 0.5
 --- !u!114 &114724303114901160
@@ -953,6 +954,7 @@ MonoBehaviour:
     - {fileID: 114192714988776888}
     AllBlades:
     - {fileID: 114405600256924422}
+    AllAxes: []
 --- !u!114 &114826206077534874
 MonoBehaviour:
   m_ObjectHideFlags: 1

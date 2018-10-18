@@ -11,7 +11,7 @@ namespace RobotSmashers {
 
         public bool DrawActivationGizmos;
 
-        void OnDrawGizmos() {
+        void OnDrawGizmosSelected() {
             if (DrawActivationGizmos) {
                 Gizmos.color = Color.red;                
                 DrawActivationGizmos = false;
