@@ -206,6 +206,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1728671386925100
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4685329735968618}
+  m_Layer: 10
+  m_Name: CenterOfMass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1834226329732040
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,6 +272,7 @@ Transform:
   - {fileID: 4601696762559482}
   - {fileID: 4922759401972480}
   - {fileID: 4657644316818632}
+  - {fileID: 4685329735968618}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -367,6 +383,19 @@ Transform:
   - {fileID: 4874652612581490}
   m_Father: {fileID: 4024613510284440}
   m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4685329735968618
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1728671386925100}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4024613510284440}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4874652612581490
 Transform:
@@ -726,9 +755,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c603a447737646b1ad4aaf408227cf89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceMode: 1
+  ForceMode: 5
   Force: 5
-  TorqueMode: 1
+  TorqueMode: 5
   Torque: 3
   GroundCollisions: 0
 --- !u!114 &114108629936241056
@@ -854,7 +883,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentTransform: {fileID: 4024613510284440}
-  CenterOfMass: {fileID: 0}
+  CenterOfMass: {fileID: 4685329735968618}
   Body: {fileID: 54244305614639014}
   AllSlots:
   - {fileID: 114497197880051548}
@@ -885,10 +914,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c603a447737646b1ad4aaf408227cf89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ForceMode: 1
-  Force: 5
-  TorqueMode: 1
-  Torque: 3
+  ForceMode: 5
+  Force: 50
+  TorqueMode: 5
+  Torque: 50
   GroundCollisions: 0
 --- !u!114 &114958987002576018
 MonoBehaviour:
@@ -903,7 +932,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UseButton: 4
   Damage: 10
-  PhysicsForce: 10
+  PhysicsForce: 30
   Radius: 2
   AttackNow: 0
 --- !u!136 &136260490239002130

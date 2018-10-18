@@ -85,6 +85,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1195868082101852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4735606676339610}
+  m_Layer: 10
+  m_Name: CenterOfMass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1218201255886436
 GameObject:
   m_ObjectHideFlags: 0
@@ -349,6 +364,7 @@ Transform:
   - {fileID: 4112754444279316}
   - {fileID: 4711256256883612}
   - {fileID: 4588655498156950}
+  - {fileID: 4735606676339610}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 147.87201, z: 0}
@@ -527,6 +543,19 @@ Transform:
   - {fileID: 4226861031457176}
   m_Father: {fileID: 4107832910250380}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4735606676339610
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195868082101852}
+  m_LocalRotation: {x: -0, y: -0.960954, z: -0, w: 0.27670833}
+  m_LocalPosition: {x: -0.083, y: 0, z: -1.209}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4107832910250380}
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4878319308222840
 Transform:
@@ -957,9 +986,9 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1584509170029570}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 5
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -1035,7 +1064,7 @@ MonoBehaviour:
   DefaultHP: 100
   CurrentHP: 0
   Name: ROBOT_2
-  ControllingPlayer: 2
+  ControllingPlayer: 1
   Chassi: {fileID: 114807285890210418}
 --- !u!114 &114383302574241186
 MonoBehaviour:
@@ -1174,7 +1203,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ParentTransform: {fileID: 4107832910250380}
-  CenterOfMass: {fileID: 0}
+  CenterOfMass: {fileID: 4735606676339610}
   Body: {fileID: 54730218413529226}
   AllSlots:
   - {fileID: 114675250370244496}
@@ -1226,9 +1255,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 5
+  Force: 8
   TorqueMode: 1
-  Torque: 3
+  Torque: 8
   GroundCollisions: 0
 --- !u!114 &114909026782040320
 MonoBehaviour:

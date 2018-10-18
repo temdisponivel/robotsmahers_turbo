@@ -1,3 +1,5 @@
+#define PHYSICS_MOVEMENT
+
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -5,8 +7,6 @@ using GamepadInput;
 using RobotSmashers.Robots;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
-
-//#define PHYSICS_MOVEMENT
 
 namespace RobotSmashers {
     public enum ComponentType {
