@@ -12,7 +12,7 @@ namespace GamepadInput
 
     public static class GamePad
     {
-        public enum Button { A, B, Y, X, RightShoulder, LeftShoulder, RightStick, LeftStick, Back, Start }
+        public enum Button { A, B, Y, X, RightShoulder, LeftShoulder, RightStick, LeftStick, Back, Start, None }
         public enum Trigger { LeftTrigger, RightTrigger }
         public enum Axis { LeftStick, RightStick, Dpad }
         public enum Index { Any, One, Two, Three, Four }

@@ -19,6 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4112754444279316}
+  - component: {fileID: 114137417610680894}
   m_Layer: 10
   m_Name: Slot_5
   m_TagString: Untagged
@@ -55,6 +56,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4588655498156950}
+  - component: {fileID: 114432117788891442}
   m_Layer: 10
   m_Name: Slot_7
   m_TagString: Untagged
@@ -91,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4699425319671328}
-  - component: {fileID: 114278283287976106}
+  - component: {fileID: 114675250370244496}
   m_Layer: 10
   m_Name: Slot_1
   m_TagString: Untagged
@@ -125,6 +127,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4711256256883612}
+  - component: {fileID: 114383302574241186}
   m_Layer: 10
   m_Name: Slot_6
   m_TagString: Untagged
@@ -161,6 +164,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4508273436139612}
+  - component: {fileID: 114399894691523904}
   m_Layer: 10
   m_Name: Slot_3
   m_TagString: Untagged
@@ -176,6 +180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4159974690371462}
+  - component: {fileID: 114574821796582772}
   m_Layer: 10
   m_Name: Slot_2
   m_TagString: Untagged
@@ -220,6 +225,22 @@ GameObject:
   - component: {fileID: 138822396121171546}
   m_Layer: 10
   m_Name: Track
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1744621887484706
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4878319308222840}
+  - component: {fileID: 114641857114849410}
+  m_Layer: 10
+  m_Name: Flipper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -270,6 +291,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4522157756581984}
+  - component: {fileID: 114561380230341324}
   m_Layer: 10
   m_Name: Slot_4
   m_TagString: Untagged
@@ -315,7 +337,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1991052757374504}
   m_LocalRotation: {x: -0, y: 0.96095395, z: -0, w: 0.2767083}
-  m_LocalPosition: {x: -15.201114, y: -1.442, z: 5.529924}
+  m_LocalPosition: {x: -12.6, y: -1.442, z: -0.99}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4311786938626912}
@@ -487,7 +509,8 @@ Transform:
   m_LocalRotation: {x: -0.6968806, y: -0, z: -0, w: 0.71718717}
   m_LocalPosition: {x: -0, y: -0.756, z: 1.171}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4878319308222840}
   m_Father: {fileID: 4107832910250380}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -88.354004, y: 0, z: 0}
@@ -504,6 +527,19 @@ Transform:
   - {fileID: 4226861031457176}
   m_Father: {fileID: 4107832910250380}
   m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4878319308222840
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1744621887484706}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4699425319671328}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4999160982959796
 Transform:
@@ -956,6 +992,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114137417610680894
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005655328644620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 1
+  UseButton: 10
 --- !u!114 &114192714988776888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -972,22 +1021,6 @@ MonoBehaviour:
   TorqueMode: 1
   Torque: 3
   GroundCollisions: 0
---- !u!114 &114278283287976106
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1218201255886436}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 928680ec8c36456089957226f3d8edf6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UseButton: 4
-  ForceMode: 1
-  Force: 45
-  Radius: 1
-  DrawActivationGizmos: 0
 --- !u!114 &114312760719731700
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1004,6 +1037,32 @@ MonoBehaviour:
   Name: ROBOT_2
   ControllingPlayer: 2
   Chassi: {fileID: 114807285890210418}
+--- !u!114 &114383302574241186
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1326961749843936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 2
+  UseButton: 0
+--- !u!114 &114399894691523904
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1520785301798000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 1
+  UseButton: 10
 --- !u!114 &114405600256924422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1019,6 +1078,74 @@ MonoBehaviour:
   PhysicsForce: 5
   DamagePerSecond: 10
   CurrentCollisions: []
+--- !u!114 &114432117788891442
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1087912439417742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 5
+  UseButton: 5
+--- !u!114 &114561380230341324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1830294759689050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 1
+  UseButton: 10
+--- !u!114 &114574821796582772
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1549037331202628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 1
+  UseButton: 10
+--- !u!114 &114641857114849410
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1744621887484706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 928680ec8c36456089957226f3d8edf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseButton: 4
+  ForceMode: 1
+  Force: 45
+  Radius: 1
+  DrawActivationGizmos: 0
+--- !u!114 &114675250370244496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1218201255886436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Component: 0
+  UseButton: 4
 --- !u!114 &114724303114901160
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1049,9 +1176,17 @@ MonoBehaviour:
   ParentTransform: {fileID: 4107832910250380}
   CenterOfMass: {fileID: 0}
   Body: {fileID: 54730218413529226}
+  AllSlots:
+  - {fileID: 114675250370244496}
+  - {fileID: 114574821796582772}
+  - {fileID: 114399894691523904}
+  - {fileID: 114561380230341324}
+  - {fileID: 114137417610680894}
+  - {fileID: 114383302574241186}
+  - {fileID: 114432117788891442}
   Components:
     AllFlippers:
-    - {fileID: 114278283287976106}
+    - {fileID: 114641857114849410}
     AllTracks:
     - {fileID: 114724303114901160}
     - {fileID: 114829935125119168}
