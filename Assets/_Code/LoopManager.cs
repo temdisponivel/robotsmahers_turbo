@@ -21,6 +21,12 @@ namespace RobotSmashers {
         void Update() {
             RobotUtil.UpdateRobots(Robots);
             GUIUtil.UpdateHealthBar(Robots, HealthBar);
+
+            bool pressed = GamePad.GetButton(GamePad.Button.A, GamePad.Index.One);
+            if (pressed)
+            {
+                UnityEngine.Debug.Log("PRESSED ==A");
+            }
         }
 
         void FixedUpdate() {
