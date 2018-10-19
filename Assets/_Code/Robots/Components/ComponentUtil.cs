@@ -123,16 +123,22 @@ namespace RobotSmashers {
             for (int i = 0; i < chassi.Components.AllFlippers.Length; i++) {
                 Flipper flipper = chassi.Components.AllFlippers[i];
 
-                if (GamePad.GetButtonDown(flipper.UseButton, playerIndex)) {
-                    flipper.DrawActivationGizmos = true;
+                flipper.CurrentCooldownTime -= Time.deltaTime;
+                if (flipper.CurrentCooldownTime <= 0) {
+                    if (GamePad.GetButtonDown(flipper.UseButton, playerIndex)) {
+                        flipper.DrawActivationGizmos = true;
 
-                    Collider[] colliders = GetRobotCollidersInArea(flipper.transform.position, flipper.Radius);
-                    List<Robot> damagedEnemies = ApplyDamage(robot, colliders, flipper.Force / 10);
+                        Collider[] colliders = GetRobotCollidersInArea(flipper.transform.position, flipper.Radius);
+                        List<Robot> damagedEnemies = ApplyDamage(robot, colliders, flipper.Force / 10);
 
-                    for (int j = 0; j < damagedEnemies.Count; j++) {
-                        Robot enemy = damagedEnemies[j];
-                        enemy.Chassi.Body.AddForceAtPosition(flipper.transform.forward * flipper.Force, flipper.transform.position, flipper.ForceMode);
-                    }
+                        /*for (int j = 0; j < damagedEnemies.Count; j++) {
+                            Robot enemy = damagedEnemies[j];
+                            enemy.Chassi.Body.AddForceAtPosition(flipper.transform.forward * flipper.Force, flipper.transform.position, flipper.ForceMode);
+                        }*/
+                        
+                        flipper.Animator.SetTrigger("Flip");
+                        flipper.CurrentCooldownTime = flipper.DefaultCooldownTime;
+                    }                    
                 }
             }
         }
