@@ -185,6 +185,10 @@ namespace RobotSmashers {
 
                 if (GamePad.GetButton(blade.UseButton, playerIndex)) {
                     blade.Animator.SetBool("On", true);
+                    if(blade.Sound.isPlaying != true)
+                    {
+                        blade.Sound.Play();
+                    }
                     List<Robot> damagedEnemies = ApplyDamage(robot, blade.CurrentCollisions.ToArray(), blade.DamagePerSecond * Time.deltaTime);
 
                     for (int j = 0; j < damagedEnemies.Count; j++) {
@@ -196,6 +200,7 @@ namespace RobotSmashers {
                     }
                 } else {
                     blade.Animator.SetBool("On", false);
+                    blade.Sound.Stop();
                 }
             }
         }
@@ -261,12 +266,22 @@ namespace RobotSmashers {
                 if (flameThrower.CurrentFuel <= 0) {
                     float totalFlamethrower = flameThrower.CurrentFuel + flameThrower.RechargePerSecond * Time.deltaTime;
                     flameThrower.CurrentFuel = Mathf.Min(flameThrower.DefaultFuel, totalFlamethrower);
+                    flameThrower.flames.Stop(true);
+                    flameThrower.Sound.Stop();
                 } else {
                     if (GamePad.GetButton(flameThrower.UseButton, index)) {
                         flameThrower.CurrentFuel -= flameThrower.FuelPerSecond * Time.deltaTime;
                         flameThrower.FireRenderer.enabled = true;
-
+                        if (flameThrower.Sound.isPlaying != true)
+                        {
+                            flameThrower.flames.Play(true);
+                            flameThrower.Sound.Play();
+                        }
                         ApplyDamage(robot, flameThrower.CurrentColliders.ToArray(), flameThrower.DamagePerSecond * Time.deltaTime);
+                    } else
+                    {
+                        flameThrower.flames.Stop(true);
+                        flameThrower.Sound.Stop();
                     }
                 }
             }

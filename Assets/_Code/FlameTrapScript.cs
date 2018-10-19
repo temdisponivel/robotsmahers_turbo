@@ -14,6 +14,7 @@ public class FlameTrapScript : MonoBehaviour
     public ParticleSystem flames;
     public float waitSeconds;
     public float damagePerSecond;
+    public AudioSource flameSounds;
 
     private void OnTriggerStay(Collider collider)
     {
@@ -28,9 +29,11 @@ public class FlameTrapScript : MonoBehaviour
     private IEnumerator Wait(float seconds)
     {
         flames.Play(true);
+        flameSounds.Play();
         waiting = true;
         yield return new WaitForSeconds(seconds);
         flames.Stop(true);
+        flameSounds.Stop();
         waiting = false;
     }
 }
