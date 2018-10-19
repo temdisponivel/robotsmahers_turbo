@@ -203,6 +203,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerCount: 2
+  Prefabs:
+  - {fileID: 114415511815305440, guid: 3ed3394c29ea6d54394e8c4e8ff8db6b, type: 2}
+  - {fileID: 114312760719731700, guid: bc52d9d9a5395ef4a91c903355e2010c, type: 2}
+  - {fileID: 114639212611874862, guid: c7b698f9551532d4abffd955d9ddd859, type: 2}
+  - {fileID: 114029804024918692, guid: dc9fd699e293e1e4bbd52b6557e207e1, type: 2}
 --- !u!4 &1135864611
 Transform:
   m_ObjectHideFlags: 0

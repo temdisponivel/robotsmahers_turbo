@@ -12,9 +12,19 @@ namespace RobotSmashers {
     
     public class GameplayLoopManager : MonoBehaviour {
         public GameplayGUIMaster GUIMaster;
+        public Transform[] SpawnPoints;
 
         void Start() {
-            GameData.Robots = FindObjectsOfType<Robot>(); // TODO: This will eventually be spawned from the template loaded from file
+            if (GameData.ToSpawn != null && GameData.ToSpawn.Length > 0) {
+                GameData.Robots = new Robot[GameData.ToSpawn.Length];
+                for (int i = 0; i < GameData.ToSpawn.Length; i++) {
+                    GameData.Robots[i] = Instantiate(GameData.ToSpawn[i], SpawnPoints[GameData.ToSpawn.Length - i - 1]);
+                    GameData.Robots[i].ControllingPlayer = (GamePad.Index) i + 1;
+                }
+            } else {
+                GameData.Robots = FindObjectsOfType<Robot>();
+            }
+            
             RobotUtil.SetupRobots(GameData.Robots);
 
             // This can happen when the game is loaded from the arena scene instead of the title scene
