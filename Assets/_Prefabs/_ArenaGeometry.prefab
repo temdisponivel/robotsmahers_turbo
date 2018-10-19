@@ -909,7 +909,7 @@ GameObject:
   - component: {fileID: 64367484539158356}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 127
@@ -945,7 +945,7 @@ GameObject:
   - component: {fileID: 65336505847066468}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Death
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4411,7 +4411,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 80eeaacd7cf23854c8952ec4cd7eedc9, type: 2}
+  - {fileID: 2100000, guid: 0ae8aab4ae40e7741a636cf6e5136a55, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

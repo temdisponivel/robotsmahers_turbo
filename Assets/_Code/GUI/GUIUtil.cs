@@ -92,8 +92,9 @@ namespace RobotSmashers.GUI {
             }
         }
 
-        public static void SetupEndRoundGUI(EndRoundGUI gui) {
+        public static void SetupEndRoundGUI(EndRoundGUI gui, Match match) {
             gui.CurrentReloadArenaCooldown = gui.DefaultReloadArenaCooldown;
+            gui.LoserText.text = string.Format("{0} won this round!", match.Winner.Name);
         }
 
         public static void UpdateEndRoundGUI(GameplayGUIMaster master, Match match) {
@@ -160,7 +161,7 @@ namespace RobotSmashers.GUI {
                     master.EndRoundGUI.gameObject.SetActive(true);
                     master.StartRoundGUI.gameObject.SetActive(false);
                     
-                    SetupEndRoundGUI(master.EndRoundGUI);
+                    SetupEndRoundGUI(master.EndRoundGUI, match);
                     break;
                 case GameplayGUIState.MATCH_ENDED:
                     master.HealthBar.gameObject.SetActive(false);
