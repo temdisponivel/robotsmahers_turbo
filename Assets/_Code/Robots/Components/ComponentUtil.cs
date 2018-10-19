@@ -271,7 +271,7 @@ namespace RobotSmashers {
                 } else {
                     if (GamePad.GetButton(flameThrower.UseButton, index)) {
                         flameThrower.CurrentFuel -= flameThrower.FuelPerSecond * Time.deltaTime;
-                        flameThrower.FireRenderer.enabled = true;
+                        //flameThrower.FireRenderer.enabled = true;
                         if (flameThrower.Sound.isPlaying != true) {
                             flameThrower.flames.Play(true);
                             flameThrower.Sound.Play();

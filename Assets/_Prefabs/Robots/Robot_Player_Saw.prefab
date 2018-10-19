@@ -1334,6 +1334,7 @@ MonoBehaviour:
     - {fileID: 114963109496006632}
     AllFlameThrowers: []
   NotTochingGroundTimer: 0
+  Renderer: {fileID: 23533821604826912}
 --- !u!114 &114951158717917576
 MonoBehaviour:
   m_ObjectHideFlags: 1

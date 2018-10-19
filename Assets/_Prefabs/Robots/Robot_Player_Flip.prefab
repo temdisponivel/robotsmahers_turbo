@@ -1085,6 +1085,7 @@ MonoBehaviour:
     AllShields: []
     AllFlameThrowers: []
   NotTochingGroundTimer: 0
+  Renderer: {fileID: 23533821604826912}
 --- !u!135 &135108881730080952
 SphereCollider:
   m_ObjectHideFlags: 1

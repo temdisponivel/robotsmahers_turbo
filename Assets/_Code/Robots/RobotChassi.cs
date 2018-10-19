@@ -15,6 +15,7 @@ namespace RobotSmashers.Robots {
         public ComponentSet Components;
 
         public float NotTochingGroundTimer;
+        public Renderer Renderer;
 
         [ContextMenu("BAKE")]
         void Reset() {

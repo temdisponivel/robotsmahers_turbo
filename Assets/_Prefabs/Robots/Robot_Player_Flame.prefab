@@ -1768,6 +1768,7 @@ MonoBehaviour:
     - {fileID: 114013074751744474}
     - {fileID: 114729778231211430}
   NotTochingGroundTimer: 0
+  Renderer: {fileID: 23533821604826912}
 --- !u!114 &114951158717917576
 MonoBehaviour:
   m_ObjectHideFlags: 1
