@@ -49,6 +49,10 @@ namespace RobotSmashers.GUI {
                 for (int j = 0; j < winCount; j++) {
                     roundsGUI.Images[j].enabled = true;
                 }
+
+                for (int j = winCount; j < roundsGUI.Images.Length; j++) {
+                    roundsGUI.Images[j].enabled = false;
+                }
             }
         }
         
@@ -123,7 +127,7 @@ namespace RobotSmashers.GUI {
         public static void UpdateGUI(GameplayGUIMaster master, Match match) {
             switch (master.CurrentState) {
                 case GameplayGUIState.PLAYING:
-                    UpdateHealthBar(match.Robots, master.HealthBar);
+                    UpdateHealthBar(match.Robots, match,  master.HealthBar);
                     break;
                 case GameplayGUIState.ROUND_START:
                     UpdateStartRoundGUI(master, match);
