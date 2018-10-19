@@ -15,19 +15,19 @@ public class SpikeTrapScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
-        Collider[] colliders = new Collider[] { collider };
-        ComponentUtil.ApplyDamage(null, colliders, damage, false);
         if (waiting == false)
         {
-            StartCoroutine(Wait(waitSeconds));
+            StartCoroutine(Wait(waitSeconds, collider));
         }
 
     }
 
-    private IEnumerator Wait(float seconds)
+    private IEnumerator Wait(float seconds, Collider collider)
     {
         waiting = true;
         yield return new WaitForSeconds(.25f);
+        Collider[] colliders = new Collider[] { collider };
+        ComponentUtil.ApplyDamage(null, colliders, damage, false);
         Animation.CrossFade("Activate", 0);
         yield return new WaitForSeconds(seconds);        
         waiting = false;
