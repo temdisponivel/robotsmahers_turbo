@@ -318,10 +318,10 @@ GameObject:
   - component: {fileID: 4182148013114672}
   - component: {fileID: 33508866378021686}
   - component: {fileID: 23173342772998808}
+  - component: {fileID: 135388218948778388}
   - component: {fileID: 114524387107148954}
   - component: {fileID: 54401118106956062}
   - component: {fileID: 138516215244857996}
-  - component: {fileID: 135388218948778388}
   m_Layer: 10
   m_Name: Track
   m_TagString: Untagged
@@ -336,7 +336,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1383166486721020}
   m_LocalRotation: {x: -0, y: 0.88939553, z: -0, w: 0.45713854}
-  m_LocalPosition: {x: -7.3417315, y: -1.8735697, z: -7.6482034}
+  m_LocalPosition: {x: -3.9967532, y: -1.8785768, z: -7.5553055}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4779445336045222}
@@ -478,7 +478,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124459106940288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.194, y: -0.553, z: 0.154}
+  m_LocalPosition: {x: 0.194, y: -0.553, z: 0.378}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4105195192947196}
@@ -519,7 +519,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386951379905768}
   m_LocalRotation: {x: -0.006299972, y: 0.002639592, z: -0.0073522744, w: 0.99994963}
-  m_LocalPosition: {x: -0.06444514, y: -0.0011795163, z: 0.0030508637}
+  m_LocalPosition: {x: 0.002, y: -0.002, z: 0.002}
   m_LocalScale: {x: 0.4061927, y: 0.4061927, z: 0.4061927}
   m_Children: []
   m_Father: {fileID: 4423786153691572}
@@ -896,8 +896,8 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1386951379905768}
   serializedVersion: 2
-  m_Mass: 15
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 2
   m_AngularDrag: 5
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -926,8 +926,8 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1395732381285852}
   serializedVersion: 2
-  m_Mass: 15
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -941,7 +941,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1383166486721020}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 8
   m_Drag: 0
   m_AngularDrag: 15
   m_UseGravity: 1
@@ -956,8 +956,8 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1857988119984266}
   serializedVersion: 2
-  m_Mass: 15
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -971,8 +971,8 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1177018614443946}
   serializedVersion: 2
-  m_Mass: 15
-  m_Drag: 0
+  m_Mass: 10
+  m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -1035,9 +1035,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 8
+  Force: 10
   TorqueMode: 1
-  Torque: 8
+  Torque: 4
   GroundCollisions: 1
 --- !u!114 &114260087782384694
 MonoBehaviour:
@@ -1095,9 +1095,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 2
+  Force: 12
   TorqueMode: 1
-  Torque: 2
+  Torque: 8
   GroundCollisions: 1
 --- !u!114 &114592803611386166
 MonoBehaviour:
@@ -1111,7 +1111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 8
+  Force: 12
   TorqueMode: 1
   Torque: 8
   GroundCollisions: 1
@@ -1127,9 +1127,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 2
+  Force: 10
   TorqueMode: 1
-  Torque: 2
+  Torque: 4
   GroundCollisions: 1
 --- !u!114 &114639212611874862
 MonoBehaviour:
