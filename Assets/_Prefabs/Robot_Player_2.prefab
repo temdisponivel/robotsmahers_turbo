@@ -851,7 +851,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1088439265857532}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -881,7 +881,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1082247657313940}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -896,7 +896,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1609174812603556}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
@@ -911,7 +911,7 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1584509170029570}
   serializedVersion: 2
-  m_Mass: 5
+  m_Mass: 15
   m_Drag: 0
   m_AngularDrag: 5
   m_UseGravity: 1
@@ -928,7 +928,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 3
   m_Drag: 0
-  m_AngularDrag: 20
+  m_AngularDrag: 15
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -989,9 +989,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 5
+  Force: 8
   TorqueMode: 1
-  Torque: 3
+  Torque: 8
   GroundCollisions: 0
 --- !u!114 &114312760719731700
 MonoBehaviour:
@@ -1087,9 +1087,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 5
+  Force: 8
   TorqueMode: 1
-  Torque: 3
+  Torque: 8
   GroundCollisions: 0
 --- !u!114 &114807285890210418
 MonoBehaviour:
@@ -1137,9 +1137,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 5
+  Force: 2
   TorqueMode: 1
-  Torque: 3
+  Torque: 2
   GroundCollisions: 0
 --- !u!114 &114829935125119168
 MonoBehaviour:
@@ -1153,9 +1153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 8
+  Force: 2
   TorqueMode: 1
-  Torque: 8
+  Torque: 2
   GroundCollisions: 0
 --- !u!114 &114877955237981900
 MonoBehaviour:
