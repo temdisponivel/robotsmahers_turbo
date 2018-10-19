@@ -264,10 +264,15 @@ namespace RobotSmashers {
                 flameThrower.FireRenderer.enabled = false;
                 
                 if (flameThrower.CurrentFuel <= 0) {
-                    float totalFlamethrower = flameThrower.CurrentFuel + flameThrower.RechargePerSecond * Time.deltaTime;
-                    flameThrower.CurrentFuel = Mathf.Min(flameThrower.DefaultFuel, totalFlamethrower);
                     flameThrower.flames.Stop(true);
                     flameThrower.Sound.Stop();
+                    
+                    if (flameThrower.CurrentDelay > 0) {
+                        flameThrower.CurrentDelay -= Time.deltaTime;
+                    } else {
+                        float totalFlamethrower = flameThrower.CurrentFuel + flameThrower.RechargePerSecond * Time.deltaTime;
+                        flameThrower.CurrentFuel = Mathf.Min(flameThrower.DefaultFuel, totalFlamethrower);
+                    }
                 } else {
                     if (GamePad.GetButton(flameThrower.UseButton, index)) {
                         flameThrower.CurrentFuel -= flameThrower.FuelPerSecond * Time.deltaTime;
@@ -277,6 +282,10 @@ namespace RobotSmashers {
                             flameThrower.Sound.Play();
                         }
                         ApplyDamage(robot, flameThrower.CurrentColliders.ToArray(), flameThrower.DamagePerSecond * Time.deltaTime);
+
+                        if (flameThrower.CurrentFuel <= 0) {
+                            flameThrower.CurrentDelay = flameThrower.DefaultDelay;
+                        }
                     } else {
                         flameThrower.flames.Stop(true);
                         flameThrower.Sound.Stop();

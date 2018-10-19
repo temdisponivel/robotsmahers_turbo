@@ -24,7 +24,7 @@ namespace RobotSmashers {
             GameData.ToSpawn = new Robot[playerCount];
 
             for (int i = 0; i < playerCount; i++) {
-                int randomIndex = UnityEngine.Random.Range(0, playerCount);
+                int randomIndex = UnityEngine.Random.Range(0, Prefabs.Length);
                 GameData.ToSpawn[i] = Prefabs[randomIndex];
             }
         }
