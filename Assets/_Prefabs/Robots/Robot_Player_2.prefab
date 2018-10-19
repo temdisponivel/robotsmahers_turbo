@@ -144,6 +144,7 @@ GameObject:
   - component: {fileID: 4175237485297058}
   - component: {fileID: 33420438016120000}
   - component: {fileID: 23337581478449574}
+  - component: {fileID: 64046905363429914}
   m_Layer: 0
   m_Name: Saw_Bot_Chasis
   m_TagString: Untagged
@@ -962,6 +963,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!64 &64046905363429914
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278829312631388}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 1
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0b453467cd31c144fa8429bc912328f3, type: 3}
 --- !u!64 &64447056863834044
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -1155,6 +1170,7 @@ MonoBehaviour:
     AllShields: []
     AllFlameThrowers:
     - {fileID: 114909026782040320}
+  NotTochingGroundTimer: 0
 --- !u!114 &114826206077534874
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -44,8 +44,13 @@ namespace RobotSmashers.Robots {
                 }
 
                 if (robot.LastCollision != null) {
-                    robot.CurrentHP -= robot.LastCollision.relativeVelocity.magnitude / 10; // TODO: This will probably come from the shields of the robot
-                    robot.LastCollision = null;
+                    if (robot.LastCollision.gameObject.CompareTag("Death")) {
+                        robot.CurrentHP = 0;
+                    } else {
+                        robot.CurrentHP -= robot.LastCollision.relativeVelocity.magnitude / 5;
+                    }
+                    
+                    robot.LastCollision = null;                        
                 }
 
                 ComponentUtil.UpdateFlippers(robot);

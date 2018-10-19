@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using GamepadInput;
 using RobotSmashers.Robots;
@@ -145,6 +146,7 @@ namespace RobotSmashers {
 
             Rigidbody ownBody = robot.Chassi.Body;
 
+            int notTouchingGroundCount = 0;
             for (int i = 0; i < chassi.Components.AllTracks.Length; i++) {
                 Track track = chassi.Components.AllTracks[i];
 
@@ -159,6 +161,17 @@ namespace RobotSmashers {
                     float multiplier = (track.Force * Time.deltaTime * leftStick.y) / ownBody.mass;
                     robot.Chassi.ParentTransform.position += robot.Chassi.ParentTransform.forward * multiplier;
 #endif
+                } else {
+                    notTouchingGroundCount++;
+                }
+            }
+
+            if (notTouchingGroundCount < chassi.Components.AllTracks.Length) {
+                chassi.NotTochingGroundTimer = 0;
+            } else {
+                chassi.NotTochingGroundTimer += Time.deltaTime;
+                if (chassi.NotTochingGroundTimer >= 10) {
+                    robot.CurrentHP = 0;
                 }
             }
         }

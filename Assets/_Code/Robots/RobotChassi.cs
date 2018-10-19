@@ -14,6 +14,8 @@ namespace RobotSmashers.Robots {
         
         public ComponentSet Components;
 
+        public float NotTochingGroundTimer;
+
         [ContextMenu("BAKE")]
         void Reset() {
             ParentTransform = transform;

@@ -18,7 +18,8 @@ namespace RobotSmashers {
             if (GameData.ToSpawn != null && GameData.ToSpawn.Length > 0) {
                 GameData.Robots = new Robot[GameData.ToSpawn.Length];
                 for (int i = 0; i < GameData.ToSpawn.Length; i++) {
-                    GameData.Robots[i] = Instantiate(GameData.ToSpawn[i], SpawnPoints[GameData.ToSpawn.Length - i - 1]);
+                    Transform spawnPoint = SpawnPoints[GameData.ToSpawn.Length - i - 1];
+                    GameData.Robots[i] = Instantiate(GameData.ToSpawn[i], spawnPoint.position, spawnPoint.rotation);
                     GameData.Robots[i].ControllingPlayer = (GamePad.Index) i + 1;
                 }
             } else {
