@@ -29,20 +29,30 @@ namespace RobotSmashers.GUI {
             return null;
         }
         
-        public static void UpdateHealthBar(Robot[] robots, HealthBar healthBars) {
+        public static void UpdateHealthBar(Robot[] robots, Match match, HealthBar healthBars) {
             UnityEngine.Debug.Assert(robots.Length == healthBars.HealthBarImages.Length, "There's not enough health bars images. There need to be at least: " + robots.Length);
             
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
                 float normalizedHp = robot.CurrentHP / robot.DefaultHP;
 
-                Text robotNameText = healthBars.RobotNames[i];
-                robotNameText.text = robot.Name;
+                //Text robotNameText = healthBars.RobotNames[i];
+                //robotNameText.text = robot.Name; // Fixed names for now 
 
                 Image image = healthBars.HealthBarImages[i];
                 image.fillAmount = 1 - normalizedHp;
 
                 image.color = robot.Color;
+
+                RoundWonsGUI roundsGUI = healthBars.RoundsGUI[i];
+                int winCount = match.Wins[i];
+                for (int j = 0; j < winCount; j++) {
+                    roundsGUI.Images[j].enabled = true;
+                }
+
+                for (int j = winCount; j < roundsGUI.Images.Length; j++) {
+                    roundsGUI.Images[j].enabled = false;
+                }
             }
         }
         
@@ -117,7 +127,7 @@ namespace RobotSmashers.GUI {
         public static void UpdateGUI(GameplayGUIMaster master, Match match) {
             switch (master.CurrentState) {
                 case GameplayGUIState.PLAYING:
-                    UpdateHealthBar(match.Robots, master.HealthBar);
+                    UpdateHealthBar(match.Robots, match,  master.HealthBar);
                     break;
                 case GameplayGUIState.ROUND_START:
                     UpdateStartRoundGUI(master, match);
