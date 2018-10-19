@@ -28,8 +28,11 @@ namespace RobotSmashers.Robots {
                     FlameThrower flameThrower = robot.Chassi.Components.AllFlameThrowers[j];
                     flameThrower.CurrentFuel = flameThrower.DefaultFuel;
                 }
-                
-                robot.Chassi.Renderer.material.SetColor("_MainColor", robot.Color);
+
+                Material material = new Material(robot.Chassi.Renderer.material);
+                material.color = robot.Color;
+                //material.SetColor("_Color", robot.Color);
+                robot.Chassi.Renderer.material = material;
             }
         }
 

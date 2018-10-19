@@ -18,6 +18,9 @@ namespace RobotSmashers {
 
         public float RechargePerSecond;
 
+        public float DefaultDelay = 3;
+        public float CurrentDelay;
+
         public MeshRenderer FireRenderer;
 
         public List<Collider> CurrentColliders;
