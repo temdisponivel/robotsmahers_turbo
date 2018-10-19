@@ -9,6 +9,7 @@ namespace RobotSmashers {
         public float DamagePerSecond;
         public List<Collider> CurrentCollisions;
         public Animator Animator;
+        public AudioSource Sound;
 
         void Awake() {
             CurrentCollisions = new List<Collider>();

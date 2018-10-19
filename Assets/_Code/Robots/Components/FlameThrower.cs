@@ -3,9 +3,13 @@ using GamepadInput;
 using UnityEngine;
 
 namespace RobotSmashers {
+
+
     public class FlameThrower : MonoBehaviour {
         public GamePad.Button UseButton;
-        
+        public AudioSource Sound;
+        public ParticleSystem flames;
+
         public float DefaultFuel;
         public float CurrentFuel;
 
