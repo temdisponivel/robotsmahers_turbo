@@ -40,7 +40,7 @@ namespace RobotSmashers.GUI {
                 robotNameText.text = robot.Name;
 
                 Image image = healthBars.HealthBarImages[i];
-                image.fillAmount = normalizedHp;
+                image.fillAmount = 1 - normalizedHp;
 
                 image.color = robot.Color;
             }

@@ -9,7 +9,12 @@ namespace RobotSmashers {
         public float Force;
         public float Radius;
 
+        public float DefaultCooldownTime;
+        public float CurrentCooldownTime;
+
         public bool DrawActivationGizmos;
+
+        public Animator Animator;
 
         void OnDrawGizmosSelected() {
             if (DrawActivationGizmos) {
