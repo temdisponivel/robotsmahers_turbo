@@ -6,5 +6,7 @@ namespace RobotSmashers.GUI {
         public float DefaultStartMatchCooldown;
         public float CurrentStartMatchCooldown;
         public Text CountdownText;
+        public AudioSource ding;
+        public bool Played;
     }
 }

@@ -93,7 +93,14 @@ namespace RobotSmashers.GUI {
             if (master.StartRoundGUI.CurrentStartMatchCooldown <= 0) {
                 if (master.StartRoundGUI.CurrentStartMatchCooldown > -.5f) {
                     master.StartRoundGUI.CountdownText.text = "GO";
-                } else {
+                    if (!master.StartRoundGUI.Played)
+                    {
+                        master.StartRoundGUI.ding.Play();
+                        master.StartRoundGUI.Played = true;
+                    }
+                    
+                }
+                else {
                     master.StartRoundGUI.CountdownText.text = Mathf.CeilToInt(master.StartRoundGUI.CurrentStartMatchCooldown).ToString();
                     ChangeState(master, match, GameplayGUIState.PLAYING);
                 }
@@ -116,6 +123,7 @@ namespace RobotSmashers.GUI {
 
         public static void SetupEndMatchGUI(EndMatchGUI gui, Match match) {
             gui.WinnerText.text = match.Winner.Name;
+            gui.winner.Play();
         }
 
         public static void UpdateEndMatchGUI(GameplayGUIMaster master, Match match) {
