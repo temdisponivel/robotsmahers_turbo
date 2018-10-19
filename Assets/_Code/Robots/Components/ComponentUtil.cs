@@ -152,8 +152,8 @@ namespace RobotSmashers {
 
                 if (track.GroundCollisions > 0) {
 #if PHYSICS_MOVEMENT
-                    Vector3 torque = chassi.ParentTransform.up * track.Torque * leftStick.x;
-                    Vector3 force = chassi.ParentTransform.forward * track.Force * rightStick.y;
+                    Vector3 torque = chassi.ParentTransform.up * track.Torque * rightStick.x;
+                    Vector3 force = chassi.ParentTransform.forward * track.Force * leftStick.y;
                     ownBody.AddRelativeTorque(torque, track.TorqueMode);
                     ownBody.AddForce(force, track.ForceMode);
 #else

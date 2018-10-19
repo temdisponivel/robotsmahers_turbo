@@ -2,7 +2,7 @@ fileFormatVersion: 2
 guid: 8cac3d0c0a6fa6048a04956e965069b5
 TextureImporter:
   fileIDToRecycleName:
-    21300000: xbox_buttons_0
+    21300000: d_pad
     21300002: xbox_buttons_1
     21300004: xbox_buttons_2
     21300006: xbox_buttons_3
@@ -11,18 +11,18 @@ TextureImporter:
     21300012: xbox_buttons_6
     21300014: xbox_buttons_7
     21300016: xbox_buttons_8
-    21300018: xbox_buttons_9
-    21300020: xbox_buttons_10
-    21300022: xbox_buttons_11
-    21300024: xbox_buttons_12
-    21300026: xbox_buttons_13
-    21300028: xbox_buttons_14
-    21300030: xbox_buttons_15
-    21300032: xbox_buttons_16
-    21300034: xbox_buttons_17
-    21300036: xbox_buttons_18
-    21300038: xbox_buttons_19
-    21300040: xbox_buttons_20
+    21300018: left_stick
+    21300020: right_stick
+    21300022: right_trigger
+    21300024: left_trigger
+    21300026: left_shoulder
+    21300028: right_shoulder
+    21300030: back
+    21300032: start
+    21300034: a
+    21300036: b
+    21300038: x
+    21300040: y
     21300042: xbox_buttons_21
     21300044: xbox_buttons_22
   externalObjects: {}
@@ -107,13 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: xbox_buttons_0
+      name: d_pad
       rect:
         serializedVersion: 2
-        x: 7
-        y: 416
-        width: 116
-        height: 102
+        x: 16
+        y: 144
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -121,7 +121,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 548ba2883200d774f8218054058bc397
+      spriteID: cca9cdc493f154741b6262ffde08adb4
       vertices: []
       indices: 
       edges: []
@@ -130,10 +130,10 @@ TextureImporter:
       name: xbox_buttons_1
       rect:
         serializedVersion: 2
-        x: 131
-        y: 423
-        width: 117
-        height: 88
+        x: 66
+        y: 162
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,7 +141,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc3d8ccfecd6c1c4b85fddc4395c7f14
+      spriteID: 34e6d267115ed164387b0c6e1504b3fd
       vertices: []
       indices: 
       edges: []
@@ -150,10 +150,10 @@ TextureImporter:
       name: xbox_buttons_2
       rect:
         serializedVersion: 2
-        x: 267
-        y: 413
-        width: 117
-        height: 102
+        x: 82
+        y: 162
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -161,7 +161,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 793f6d2a4f7eab4409a1a6325db889c1
+      spriteID: 6063a0669edbe5f4282cfa68f17ee7dd
       vertices: []
       indices: 
       edges: []
@@ -170,10 +170,10 @@ TextureImporter:
       name: xbox_buttons_3
       rect:
         serializedVersion: 2
-        x: 405
-        y: 421
-        width: 117
-        height: 88
+        x: 97
+        y: 167
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,7 +181,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75401003a63828f4a9f1cba3e76766df
+      spriteID: 2b580fa3a254d6c4b8c2944fc6ff4188
       vertices: []
       indices: 
       edges: []
@@ -190,10 +190,10 @@ TextureImporter:
       name: xbox_buttons_4
       rect:
         serializedVersion: 2
-        x: 577
-        y: 438
-        width: 68
-        height: 68
+        x: 106
+        y: 167
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -201,7 +201,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 01935d3d6b921cf42bbecebaa1fd32f6
+      spriteID: ab9fe32fe5c1d1340850600f2e476763
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
       name: xbox_buttons_5
       rect:
         serializedVersion: 2
-        x: 682
-        y: 436
-        width: 68
-        height: 68
+        x: 115
+        y: 167
+        width: 8
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,7 +221,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cebbd887575f0a340b43494d3af80414
+      spriteID: a204f7000f5185c42aa5c435d6e6ecc6
       vertices: []
       indices: 
       edges: []
@@ -230,10 +230,10 @@ TextureImporter:
       name: xbox_buttons_6
       rect:
         serializedVersion: 2
-        x: 20
-        y: 311
-        width: 84
-        height: 83
+        x: 124
+        y: 167
+        width: 7
+        height: 7
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -241,7 +241,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14a89104c00d2ed429a760c3d088a47c
+      spriteID: 7549aa4c4c8700744bacdd06821f079e
       vertices: []
       indices: 
       edges: []
@@ -250,10 +250,10 @@ TextureImporter:
       name: xbox_buttons_7
       rect:
         serializedVersion: 2
-        x: 138
-        y: 310
-        width: 84
-        height: 84
+        x: 66
+        y: 147
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -261,7 +261,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e421df96c651394ea9684ecb02c82b4
+      spriteID: 331ac5d56cdf9d34bb04b204a92c98b0
       vertices: []
       indices: 
       edges: []
@@ -270,10 +270,10 @@ TextureImporter:
       name: xbox_buttons_8
       rect:
         serializedVersion: 2
-        x: 251
-        y: 311
-        width: 83
-        height: 84
+        x: 82
+        y: 146
+        width: 12
+        height: 12
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -281,19 +281,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ac0b2f4c0e2aec74d836c4c89d6d0826
+      spriteID: b2f176efa96a05443a55e6c1cca35442
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_9
+      name: left_stick
       rect:
         serializedVersion: 2
-        x: 362
-        y: 309
-        width: 84
-        height: 83
+        x: 16
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -301,19 +301,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a9ac060e72deae3428d86709b518d5a5
+      spriteID: 51bca86766efc9f4fab880e34665a50b
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_10
+      name: right_stick
       rect:
         serializedVersion: 2
-        x: 474
-        y: 309
-        width: 83
-        height: 83
+        x: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,19 +321,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4c9a01b92018bab43833f25ff580d06e
+      spriteID: 57600438ff784d0478f3fbed0eb375b2
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_11
+      name: right_trigger
       rect:
         serializedVersion: 2
-        x: 581
-        y: 326
-        width: 68
-        height: 68
+        x: 112
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -341,19 +341,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 17fd2113c39031f4b913958a4afd67ec
+      spriteID: 5e33c497c254b354b839b02b20079e44
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_12
+      name: left_trigger
       rect:
         serializedVersion: 2
-        x: 683
-        y: 324
-        width: 68
-        height: 68
+        x: 160
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,19 +361,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ef6d1dec2f5c71e40be71ae0181773e1
+      spriteID: 7299319bbec536743b19141e63c4c91d
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_13
+      name: left_shoulder
       rect:
         serializedVersion: 2
-        x: 14
-        y: 216
-        width: 78
-        height: 70
+        x: 16
+        y: 64
+        width: 32
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -381,19 +381,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f77951b9f926f241b821e8cf8cf1090
+      spriteID: 7de5338256baaaa45917ef0e5e68333a
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_14
+      name: right_shoulder
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3889697dd5ec39c47b02b0c4225b0be5
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: back
       rect:
         serializedVersion: 2
         x: 115
-        y: 215
-        width: 78
-        height: 70
+        y: 64
+        width: 26
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -401,19 +421,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5003df918b68f914bbd33702efff8c2a
+      spriteID: d4fcbbfba8f500a468718e1b3d3b0976
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_15
+      name: start
       rect:
         serializedVersion: 2
-        x: 205
-        y: 199
-        width: 60
-        height: 88
+        x: 163
+        y: 64
+        width: 26
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -421,19 +441,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3b07c01fc1f4a604e99fc3a85b460562
+      spriteID: d6e5acc117d864444bcd586162ef8052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_16
+      name: a
       rect:
         serializedVersion: 2
-        x: 280
-        y: 200
-        width: 60
-        height: 89
+        x: 16
+        y: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,19 +461,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9b8b4d66f31069c49869d2b10e2e76e8
+      spriteID: 1d6bcdd3b7e318748be386cf13a18140
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_17
+      name: b
       rect:
         serializedVersion: 2
-        x: 355
-        y: 243
-        width: 93
-        height: 39
+        x: 64
+        y: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,19 +481,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d42c9a238b3a3e458ea7fdc0b0d8277
+      spriteID: a59cd7d86b5999543938b21f4bdf6f00
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_18
+      name: x
       rect:
         serializedVersion: 2
-        x: 592
-        y: 270
-        width: 30
-        height: 24
+        x: 112
+        y: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -481,19 +501,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f603970dbd08486499dcde02fcab9369
+      spriteID: ee215a445f298d249a20bcfccfcf235e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: xbox_buttons_19
+      name: y
       rect:
         serializedVersion: 2
-        x: 602
-        y: 243
-        width: 44
-        height: 40
+        x: 160
+        y: 16
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -501,67 +521,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8c8044b61edcee45a6ddc2a38021dc0
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: xbox_buttons_20
-      rect:
-        serializedVersion: 2
-        x: 699
-        y: 242
-        width: 45
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ccf6327d92030e048bf2a4625e8a4d7f
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: xbox_buttons_21
-      rect:
-        serializedVersion: 2
-        x: 724
-        y: 262
-        width: 31
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 178fac1ab7677c9438a1bc14536ee4c6
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: xbox_buttons_22
-      rect:
-        serializedVersion: 2
-        x: 357
-        y: 191
-        width: 93
-        height: 40
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a6a54c9822b0b4543ac1baf36123f543
+      spriteID: 8c9fcac5553687b43a0482dfb308c0ff
       vertices: []
       indices: 
       edges: []
