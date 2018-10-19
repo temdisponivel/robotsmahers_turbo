@@ -8,6 +8,7 @@ namespace RobotSmashers {
         public ForceMode ForceMode;
         public float Force;
         public float Radius;
+        public AudioSource Sound;
 
         public float DefaultCooldownTime;
         public float CurrentCooldownTime;

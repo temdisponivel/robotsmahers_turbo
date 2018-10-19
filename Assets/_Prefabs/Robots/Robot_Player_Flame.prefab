@@ -459,7 +459,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1383166486721020}
   m_LocalRotation: {x: 0.015337538, y: -0.90681404, z: -0.019004256, w: -0.4208229}
-  m_LocalPosition: {x: -5.4763694, y: -1.8432448, z: 0.06352043}
+  m_LocalPosition: {x: -1.4693308, y: -1.8432448, z: -4.3125906}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4779445336045222}
@@ -687,7 +687,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1124459106940288}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.194, y: -0.553, z: -0.444}
+  m_LocalPosition: {x: 0.194, y: -0.553, z: -0.048}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4105195192947196}
@@ -1602,9 +1602,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 2
+  Force: 8
   TorqueMode: 1
-  Torque: 2
+  Torque: 8
   GroundCollisions: 1
 --- !u!114 &114592803611386166
 MonoBehaviour:
@@ -1634,9 +1634,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceMode: 1
-  Force: 2
+  Force: 8
   TorqueMode: 1
-  Torque: 2
+  Torque: 8
   GroundCollisions: 0
 --- !u!114 &114639212611874862
 MonoBehaviour:
