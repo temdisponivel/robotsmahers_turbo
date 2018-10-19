@@ -2651,58 +2651,6 @@ Mesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
---- !u!1001 &656354820
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 224268294892448322, guid: 142e4d5cb5715114a96d98561f540917,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: -0.00036621094
-      objectReference: {fileID: 0}
-    - target: {fileID: 224268294892448322, guid: 142e4d5cb5715114a96d98561f540917,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -0.0006713867
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
-  m_IsPrefabAsset: 0
 --- !u!43 &812248696
 Mesh:
   m_ObjectHideFlags: 0
@@ -4563,6 +4511,48 @@ Mesh:
   m_MeshMetrics[0]: 1
   m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
+--- !u!1001 &1655946258
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4766628960845126, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 142e4d5cb5715114a96d98561f540917, type: 2}
+  m_IsPrefabAsset: 0
 --- !u!43 &1733758608
 Mesh:
   m_ObjectHideFlags: 0
