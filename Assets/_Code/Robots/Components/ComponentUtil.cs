@@ -129,16 +129,10 @@ namespace RobotSmashers {
                         flipper.DrawActivationGizmos = true;
 
                         Collider[] colliders = GetRobotCollidersInArea(flipper.transform.position, flipper.Radius);
-                        List<Robot> damagedEnemies = ApplyDamage(robot, colliders, flipper.Force / 10);
-
-                        /*for (int j = 0; j < damagedEnemies.Count; j++) {
-                            Robot enemy = damagedEnemies[j];
-                            enemy.Chassi.Body.AddForceAtPosition(flipper.transform.forward * flipper.Force, flipper.transform.position, flipper.ForceMode);
-                        }*/
-                        
+                        ApplyDamage(robot, colliders, flipper.Force / 10);
                         flipper.Animator.SetTrigger("Flip");
                         flipper.CurrentCooldownTime = flipper.DefaultCooldownTime;
-                    }                    
+                    }
                 }
             }
         }
@@ -177,6 +171,7 @@ namespace RobotSmashers {
                 Blade blade = chassi.Components.AllBlades[i];
 
                 if (GamePad.GetButton(blade.UseButton, playerIndex)) {
+                    blade.Animator.SetBool("On", true);
                     List<Robot> damagedEnemies = ApplyDamage(robot, blade.CurrentCollisions.ToArray(), blade.DamagePerSecond * Time.deltaTime);
 
                     for (int j = 0; j < damagedEnemies.Count; j++) {
@@ -186,6 +181,8 @@ namespace RobotSmashers {
                         Vector3 force = (enemy.Chassi.transform.position - chassi.transform.position) * blade.PhysicsForce;
                         enemyBody.AddForceAtPosition(force, blade.transform.position, ForceMode.Impulse);
                     }
+                } else {
+                    blade.Animator.SetBool("On", false);
                 }
             }
         }

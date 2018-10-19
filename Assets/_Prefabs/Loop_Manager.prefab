@@ -582,7 +582,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GUIMaster: {fileID: 114762902203836622}
-  Robots: []
 --- !u!114 &114313102338296652
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -896,8 +895,12 @@ MonoBehaviour:
     Image: {fileID: 21300010, guid: 8cac3d0c0a6fa6048a04956e965069b5, type: 3}
   - Button: 3
     Image: {fileID: 21300008, guid: 8cac3d0c0a6fa6048a04956e965069b5, type: 3}
+  - Button: 10
+    Image: {fileID: 21300032, guid: 8cac3d0c0a6fa6048a04956e965069b5, type: 3}
+  - Button: 11
+    Image: {fileID: 21300030, guid: 8cac3d0c0a6fa6048a04956e965069b5, type: 3}
   - Button: 4
-    Image: {fileID: 21300026, guid: 8cac3d0c0a6fa6048a04956e965069b5, type: 3}
+    Image: {fileID: 21300028, guid: 8cac3d0c0a6fa6048a04956e965069b5, type: 3}
   - Button: 5
     Image: {fileID: 21300028, guid: 8cac3d0c0a6fa6048a04956e965069b5, type: 3}
   CurrentState: 0
@@ -1216,7 +1219,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 47.43979}
+  m_AnchoredPosition: {x: 0, y: 47.43982}
   m_SizeDelta: {x: 0, y: 94.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224430692473087428

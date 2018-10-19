@@ -8,6 +8,7 @@ namespace RobotSmashers {
         public float PhysicsForce;
         public float DamagePerSecond;
         public List<Collider> CurrentCollisions;
+        public Animator Animator;
 
         void Awake() {
             CurrentCollisions = new List<Collider>();
