@@ -271,15 +271,13 @@ namespace RobotSmashers {
                 } else {
                     if (GamePad.GetButton(flameThrower.UseButton, index)) {
                         flameThrower.CurrentFuel -= flameThrower.FuelPerSecond * Time.deltaTime;
-                        flameThrower.FireRenderer.enabled = true;
-                        if (flameThrower.Sound.isPlaying != true)
-                        {
+                        //flameThrower.FireRenderer.enabled = true;
+                        if (flameThrower.Sound.isPlaying != true) {
                             flameThrower.flames.Play(true);
                             flameThrower.Sound.Play();
                         }
                         ApplyDamage(robot, flameThrower.CurrentColliders.ToArray(), flameThrower.DamagePerSecond * Time.deltaTime);
-                    } else
-                    {
+                    } else {
                         flameThrower.flames.Stop(true);
                         flameThrower.Sound.Stop();
                     }

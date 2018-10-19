@@ -1334,6 +1334,7 @@ MonoBehaviour:
     - {fileID: 114963109496006632}
     AllFlameThrowers: []
   NotTochingGroundTimer: 0
+  Renderer: {fileID: 23533821604826912}
 --- !u!114 &114951158717917576
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1345,7 +1346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2743cb4591644eb98c55105d72c8bcad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Component: 5
+  Component: 4
   UseButton: 5
 --- !u!114 &114963109496006632
 MonoBehaviour:

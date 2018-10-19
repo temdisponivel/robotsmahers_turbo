@@ -1041,6 +1041,7 @@ MonoBehaviour:
   DamagePerSecond: 10
   CurrentCollisions: []
   Animator: {fileID: 95390404605445282}
+  Sound: {fileID: 0}
 --- !u!114 &114294206043684610
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1170,10 +1171,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UseButton: 5
+  Sound: {fileID: 0}
+  flames: {fileID: 0}
   DefaultFuel: 100
   CurrentFuel: 0
   FuelPerSecond: 50
   DamagePerSecond: 8
+  RechargePerSecond: 0
   FireRenderer: {fileID: 23387531430316672}
   CurrentColliders: []
 --- !u!114 &114732120722580044
