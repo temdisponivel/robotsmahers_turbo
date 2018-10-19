@@ -8,6 +8,15 @@ namespace RobotSmashers.Robots {
         public static void SetupRobots(Robot[] robots) {
             for (int i = 0; i < robots.Length; i++) {
                 Robot robot = robots[i];
+
+                if (i == 0) {
+                    robot.Name = "Rob";
+                    robot.Color = Color.blue;
+                } else if (i == 1) {
+                    robot.Name = "Betty";
+                    robot.Color = Color.red;
+                }
+
                 robot.CurrentHP = robot.DefaultHP;
 
                 for (int j = 0; j < robot.Chassi.Components.AllShields.Length; j++) {
