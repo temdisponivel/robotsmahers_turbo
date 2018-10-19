@@ -256,13 +256,18 @@ namespace RobotSmashers {
 
             for (int i = 0; i < chassi.Components.AllFlameThrowers.Length; i++) {
                 FlameThrower flameThrower = chassi.Components.AllFlameThrowers[i];
-                if (GamePad.GetButton(flameThrower.UseButton, index) && flameThrower.CurrentFuel > 0) {
-                    flameThrower.CurrentFuel -= flameThrower.FuelPerSecond * Time.deltaTime;
-                    flameThrower.FireRenderer.enabled = true;
-
-                    ApplyDamage(robot, flameThrower.CurrentColliders.ToArray(), flameThrower.DamagePerSecond * Time.deltaTime, false);
+                flameThrower.FireRenderer.enabled = false;
+                
+                if (flameThrower.CurrentFuel <= 0) {
+                    float totalFlamethrower = flameThrower.CurrentFuel + flameThrower.RechargePerSecond * Time.deltaTime;
+                    flameThrower.CurrentFuel = Mathf.Min(flameThrower.DefaultFuel, totalFlamethrower);
                 } else {
-                    flameThrower.FireRenderer.enabled = false;
+                    if (GamePad.GetButton(flameThrower.UseButton, index)) {
+                        flameThrower.CurrentFuel -= flameThrower.FuelPerSecond * Time.deltaTime;
+                        flameThrower.FireRenderer.enabled = true;
+
+                        ApplyDamage(robot, flameThrower.CurrentColliders.ToArray(), flameThrower.DamagePerSecond * Time.deltaTime);
+                    }
                 }
             }
         }

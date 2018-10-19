@@ -12,6 +12,8 @@ namespace RobotSmashers {
         public float FuelPerSecond;
         public float DamagePerSecond;
 
+        public float RechargePerSecond;
+
         public MeshRenderer FireRenderer;
 
         public List<Collider> CurrentColliders;
