@@ -128,6 +128,7 @@ namespace RobotSmashers {
                 if (flipper.CurrentCooldownTime <= 0) {
                     if (GamePad.GetButtonDown(flipper.UseButton, playerIndex)) {
                         flipper.DrawActivationGizmos = true;
+                        flipper.Sound.Play();
 
                         Collider[] colliders = GetRobotCollidersInArea(flipper.transform.position, flipper.Radius);
                         ApplyDamage(robot, colliders, flipper.Force / 10);
